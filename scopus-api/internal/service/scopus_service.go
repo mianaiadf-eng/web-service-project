@@ -29,6 +29,18 @@ func getString(m map[string]interface{}, key string) string {
 
 func (s *ScopusService) GetResearch() ([]model.Research, error) {
 
+		// 🔥 1. เช็ค cache ก่อน
+	cached, _ := repository.GetAllResearch()
+
+	if len(cached) > 0 {
+		fmt.Println("⚡ ใช้ข้อมูลจาก DB (cache)")
+		return cached, nil
+	}
+
+	fmt.Println("🌐 ดึงจาก Scopus API")
+
+	// 🔽 ของเดิมคุณต่อจากนี้ได้เลย
+
 	apiKey := os.Getenv("SCOPUS_API_KEY")
 	if apiKey == "" {
 		return nil, fmt.Errorf("missing SCOPUS_API_KEY")
@@ -42,7 +54,7 @@ func (s *ScopusService) GetResearch() ([]model.Research, error) {
 
 	var results []model.Research
 
-	for start := 0; start < 1000; start += 25 {
+	for start := 0; start < 2000; start += 25 {
 
 		fullURL := fmt.Sprintf(
 			"https://api.elsevier.com/content/search/scopus?query=%s&count=25&start=%d&apiKey=%s",
