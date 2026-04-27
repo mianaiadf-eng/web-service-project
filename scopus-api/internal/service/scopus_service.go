@@ -168,3 +168,12 @@ if university == "" {
 func (s *ScopusService) GetResearchFromDB() ([]model.Research, error) {
 	return repository.GetAllResearch()
 }
+
+
+func (s *ScopusService) GetResearchWithFilter(year, university string, limit int) ([]model.Research, error) {
+	return repository.GetResearchWithFilter(year, university, limit)
+}
+
+func (s *ScopusService) GetResearchWithLimit(limit int) ([]model.Research, error) {
+	return repository.GetResearchWithLimit(limit)
+}

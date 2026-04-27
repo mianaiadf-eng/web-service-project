@@ -16,6 +16,7 @@ import (
 	_ "github.com/lib/pq"
 	"scopus-api/internal/config"
 	"scopus-api/internal/handler"
+	"scopus-api/internal/middleware"
 )
 
 
@@ -263,8 +264,9 @@ func main() {
 
 	r := gin.Default()
 
-	r.GET("/scopus", handler.GetScopus)
-	r.GET("/research", handler.GetResearch)
+	//r.GET("/scopus", middleware.CheckPackage(), handler.GetScopus)
+	r.GET("/research", middleware.CheckPackage(),handler.GetResearch)
+	r.GET("/reset", handler.ResetUsage)
 
 	fmt.Println("Server running at http://localhost:8080")
 

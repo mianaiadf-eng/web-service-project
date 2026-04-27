@@ -75,3 +75,106 @@ func GetAllResearch() ([]model.Research, error) {
 
 	return results, nil
 }
+
+
+// 🔥 แก้ตรงนี้: เพิ่ม limit parameter
+//
+func GetResearchWithFilter(year string, university string, limit int) ([]model.Research, error) {
+
+	query := `
+		SELECT title, journal, year, doi, cited, university
+		FROM research
+		WHERE 1=1
+	`
+
+	args := []interface{}{}
+	i := 1
+
+	if year != "" {
+		query += fmt.Sprintf(" AND year = $%d", i)
+		args = append(args, year)
+		i++
+	}
+
+	if university != "" {
+		query += fmt.Sprintf(" AND university ILIKE $%d", i)
+		args = append(args, "%"+university+"%")
+		i++
+	}
+
+	// 🔥 ใช้ limit จาก middleware
+	query += fmt.Sprintf(" ORDER BY year DESC LIMIT %d", limit)
+
+	rows, err := config.DB.Query(query, args...)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var results []model.Research
+
+	for rows.Next() {
+		var r model.Research
+		var doi *string
+
+		err := rows.Scan(
+			&r.Title,
+			&r.Journal,
+			&r.Year,
+			&doi,
+			&r.Cited,
+			&r.University,
+		)
+		if err != nil {
+			continue
+		}
+
+		r.DOI = doi
+		results = append(results, r)
+	}
+
+	return results, nil
+}
+
+//
+// 🔥 เพิ่มใหม่: ไม่มี filter แต่มี limit
+//
+func GetResearchWithLimit(limit int) ([]model.Research, error) {
+
+	query := fmt.Sprintf(`
+		SELECT title, journal, year, doi, cited, university
+		FROM research
+		ORDER BY year DESC
+		LIMIT %d
+	`, limit)
+
+	rows, err := config.DB.Query(query)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var results []model.Research
+
+	for rows.Next() {
+		var r model.Research
+		var doi *string
+
+		err := rows.Scan(
+			&r.Title,
+			&r.Journal,
+			&r.Year,
+			&doi,
+			&r.Cited,
+			&r.University,
+		)
+		if err != nil {
+			continue
+		}
+
+		r.DOI = doi
+		results = append(results, r)
+	}
+
+	return results, nil
+}
