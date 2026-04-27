@@ -8,7 +8,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// ------------------ ดึงจาก Scopus ------------------
 func GetScopus(c *gin.Context) {
 
 	s := service.NewScopusService()
@@ -24,7 +23,6 @@ func GetScopus(c *gin.Context) {
 	c.JSON(http.StatusOK, data)
 }
 
-// ------------------ ดึงจาก Database ------------------
 func GetResearch(c *gin.Context) {
 
 	s := service.NewScopusService()

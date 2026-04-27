@@ -1,6 +1,5 @@
 package service
 
-
 import (
 	"encoding/json"
 	"fmt"
@@ -9,6 +8,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 
 	"scopus-api/internal/model"
 	"scopus-api/internal/repository"
@@ -20,7 +20,6 @@ func NewScopusService() *ScopusService {
 	return &ScopusService{}
 }
 
-// ------------------ helper ------------------
 func getString(m map[string]interface{}, key string) string {
 	if v, ok := m[key]; ok && v != nil {
 		return strings.TrimSpace(fmt.Sprint(v))
@@ -28,60 +27,6 @@ func getString(m map[string]interface{}, key string) string {
 	return ""
 }
 
-// ------------------ ดึงมหาลัย (เฉพาะไทย + university) ------------------
-func (s *ScopusService) getUniversity(eid string) string {
-
-	apiKey := os.Getenv("SCOPUS_API_KEY")
-
-	url := fmt.Sprintf(
-		"https://api.elsevier.com/content/abstract/scopus_id/%s",
-		eid,
-	)
-
-	req, _ := http.NewRequest("GET", url, nil)
-	req.Header.Set("Accept", "application/json")
-	req.Header.Set("X-ELS-APIKey", apiKey)
-
-	resp, err := http.DefaultClient.Do(req)
-	if err != nil {
-		return ""
-	}
-	defer resp.Body.Close()
-
-	var data map[string]interface{}
-	if err := json.NewDecoder(resp.Body).Decode(&data); err != nil {
-		return ""
-	}
-
-	root, ok := data["abstracts-retrieval-response"].(map[string]interface{})
-	if !ok {
-		return ""
-	}
-
-	if affs, ok := root["affiliation"].([]interface{}); ok {
-
-		for _, a := range affs {
-			affMap, ok := a.(map[string]interface{})
-			if !ok {
-				continue
-			}
-
-			name := getString(affMap, "affilname")
-			country := strings.ToLower(getString(affMap, "affiliation-country"))
-
-			// 🔥 เฉพาะไทย + ต้องเป็นมหาลัย
-			if strings.Contains(country, "thailand") &&
-				strings.Contains(strings.ToLower(name), "university") {
-
-				return name
-			}
-		}
-	}
-
-	return ""
-}
-
-// ------------------ main logic ------------------
 func (s *ScopusService) GetResearch() ([]model.Research, error) {
 
 	apiKey := os.Getenv("SCOPUS_API_KEY")
@@ -89,91 +34,120 @@ func (s *ScopusService) GetResearch() ([]model.Research, error) {
 		return nil, fmt.Errorf("missing SCOPUS_API_KEY")
 	}
 
-	// 🔥 ดึงเฉพาะประเทศไทย
-	query := "AFFILCOUNTRY(Thailand)"
+	// 🔥 ดึงเฉพาะมหาลัยไทยตั้งแต่ต้น
+	query := "AFFILCOUNTRY(Thailand) AND (AFFILORG(university) OR AFFILORG(univ))"
 	encoded := url.QueryEscape(query)
 
-	fullURL := fmt.Sprintf(
-		"https://api.elsevier.com/content/search/scopus?query=%s&count=10&apiKey=%s",
-		encoded,
-		apiKey,
-	)
-
-	resp, err := http.Get(fullURL)
-	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
-
-	var data map[string]interface{}
-	if err := json.NewDecoder(resp.Body).Decode(&data); err != nil {
-		return nil, err
-	}
-
-	sr, ok := data["search-results"].(map[string]interface{})
-	if !ok {
-		return []model.Research{}, nil
-	}
-
-	entriesRaw := sr["entry"]
-
-	var entries []interface{}
-	switch v := entriesRaw.(type) {
-	case []interface{}:
-		entries = v
-	case map[string]interface{}:
-		entries = []interface{}{v}
-	default:
-		return []model.Research{}, nil
-	}
+	client := http.Client{Timeout: 10 * time.Second}
 
 	var results []model.Research
 
-	for _, e := range entries {
+	for start := 0; start < 1000; start += 25 {
 
-		item := e.(map[string]interface{})
+		fullURL := fmt.Sprintf(
+			"https://api.elsevier.com/content/search/scopus?query=%s&count=25&start=%d&apiKey=%s",
+			encoded,
+			start,
+			apiKey,
+		)
 
-		title := getString(item, "dc:title")
-		journal := getString(item, "prism:publicationName")
-
-		year := 0
-		if d, ok := item["prism:coverDate"].(string); ok && len(d) >= 4 {
-			year, _ = strconv.Atoi(d[:4])
+		resp, err := client.Get(fullURL)
+		if err != nil {
+			return nil, err
 		}
 
-		cited := 0
-		if c, ok := item["citedby-count"].(string); ok {
-			cited, _ = strconv.Atoi(c)
+		var data map[string]interface{}
+		if err := json.NewDecoder(resp.Body).Decode(&data); err != nil {
+			resp.Body.Close()
+			return nil, err
+		}
+		resp.Body.Close()
+
+		sr, ok := data["search-results"].(map[string]interface{})
+		if !ok {
+			break
 		}
 
-		rawID := fmt.Sprint(item["dc:identifier"])
-		eid := strings.TrimPrefix(rawID, "SCOPUS_ID:")
+		entriesRaw := sr["entry"]
 
-		var doi *string
-		if d, ok := item["prism:doi"].(string); ok {
-			doi = &d
+		var entries []interface{}
+		switch v := entriesRaw.(type) {
+		case []interface{}:
+			entries = v
+		case map[string]interface{}:
+			entries = []interface{}{v}
+		default:
+			break
 		}
 
-		// 🔥 ดึงมหาลัยไทยจริงเท่านั้น
-		university := s.getUniversity(eid)
+		if len(entries) == 0 {
+			break
+		}
 
-		// ❌ ตัดที่ไม่ใช่ไทยออก
-		if university == "" {
+		for _, e := range entries {
+
+			item := e.(map[string]interface{})
+
+			title := getString(item, "dc:title")
+			journal := getString(item, "prism:publicationName")
+
+			year := 0
+			if d, ok := item["prism:coverDate"].(string); ok && len(d) >= 4 {
+				year, _ = strconv.Atoi(d[:4])
+			}
+
+			cited := 0
+			if c, ok := item["citedby-count"].(string); ok {
+				cited, _ = strconv.Atoi(c)
+			}
+
+			var doi *string
+			if d, ok := item["prism:doi"].(string); ok {
+				doi = &d
+			}
+
+			var university string
+
+if affs, ok := item["affiliation"].([]interface{}); ok {
+
+	for _, a := range affs {
+
+		affMap, ok := a.(map[string]interface{})
+		if !ok {
 			continue
 		}
 
-		results = append(results, model.Research{
-			Title:      title,
-			Journal:    journal,
-			Year:       year,
-			DOI:        doi,
-			Cited:      cited,
-			Authors:    []string{},
-			University: university,
-		})
+		name := getString(affMap, "affilname")
+		country := strings.ToLower(getString(affMap, "affiliation-country"))
+
+		// ✅ เอาเฉพาะ "ไทย + มหาลัย"
+		if strings.Contains(country, "thailand") &&
+			(strings.Contains(strings.ToLower(name), "university") ||
+				strings.Contains(strings.ToLower(name), "univ")) {
+
+			university = name
+			break
+		}
+	}
+}
+
+// ❌ ถ้าไม่ใช่ไทย → ไม่เอา
+if university == "" {
+	continue
+}
+
+			results = append(results, model.Research{
+				Title:      title,
+				Journal:    journal,
+				Year:       year,
+				DOI:        doi,
+				Cited:      cited,
+				Authors:    []string{},
+				University: university,
+			})
+		}
 	}
 
-	// 🔥 save ลง database
 	repository.SaveResearch(results)
 
 	return results, nil

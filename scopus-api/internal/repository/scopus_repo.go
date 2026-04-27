@@ -13,9 +13,11 @@ func SaveResearch(results []model.Research) {
 
 	for _, r := range results {
 
-		doi := ""
-		if r.DOI != nil {
+		var doi interface{}
+		if r.DOI != nil && *r.DOI != "" {
 			doi = *r.DOI
+		} else {
+			doi = nil
 		}
 
 		_, err := config.DB.ExecContext(ctx, `
@@ -43,7 +45,6 @@ func GetAllResearch() ([]model.Research, error) {
 		SELECT title, journal, year, doi, cited, university
 		FROM research
 		ORDER BY year DESC
-		LIMIT 20
 	`)
 	if err != nil {
 		return nil, err
@@ -54,7 +55,7 @@ func GetAllResearch() ([]model.Research, error) {
 
 	for rows.Next() {
 		var r model.Research
-		var doi string
+		var doi *string
 
 		err := rows.Scan(
 			&r.Title,
@@ -68,10 +69,7 @@ func GetAllResearch() ([]model.Research, error) {
 			continue
 		}
 
-		if doi != "" {
-			r.DOI = &doi
-		}
-
+		r.DOI = doi
 		results = append(results, r)
 	}
 
