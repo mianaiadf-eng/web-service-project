@@ -108,3 +108,9 @@ func CheckPackage() gin.HandlerFunc {
 		c.Next()
 	}
 }
+func ResetUsage() {
+	mu.Lock()
+	defer mu.Unlock()
+
+	usage = map[string]int{}
+}
