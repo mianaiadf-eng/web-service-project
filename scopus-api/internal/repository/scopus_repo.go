@@ -76,7 +76,7 @@ func GetAllResearch() ([]model.Research, error) {
 	return results, nil
 }
 
-func GetResearchWithFilter(year string, university string) ([]model.Research, error) {
+func GetResearchWithFilter(year string, university string, journal string) ([]model.Research, error) {
 
 	query := `
 		SELECT title, journal, year, doi, cited, university
@@ -96,6 +96,13 @@ func GetResearchWithFilter(year string, university string) ([]model.Research, er
 	if university != "" {
 		query += fmt.Sprintf(" AND university ILIKE $%d", i)
 		args = append(args, "%"+university+"%")
+		i++
+	}
+
+	// ✅ เพิ่มตรงนี้
+	if journal != "" {
+		query += fmt.Sprintf(" AND journal ILIKE $%d", i)
+		args = append(args, "%"+journal+"%")
 		i++
 	}
 
