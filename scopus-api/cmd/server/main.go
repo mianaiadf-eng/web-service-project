@@ -19,6 +19,7 @@ func main() {
 	r := gin.Default()
 
 	r.GET("/research", middleware.CheckPackage(), handler.GetResearch)
+	r.GET("/reset", handler.ResetUsage)
 
 	fmt.Println("Server running at http://localhost:8080")
 	r.Run(":8080")
