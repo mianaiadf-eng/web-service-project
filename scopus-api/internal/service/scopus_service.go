@@ -100,15 +100,25 @@ func (s *ScopusService) GetResearch(userID string, limit int) ([]model.Research,
 			doi = &d
 		}
 
+		// 🔥 เพิ่ม university (สำคัญมาก)
+		university := getString(item, "affiliation")
+
 		results = append(results, model.Research{
-			Title:   title,
-			Journal: journal,
-			Year:    year,
-			DOI:     doi,
+			Title:      title,
+			Journal:    journal,
+			Year:       year,
+			DOI:        doi,
+			Cited:      0,
+			University: university,
 		})
 	}
 
-	repository.SaveResearch(results)
+	// 🔥 เช็ค error ตอน save
+	err = repository.SaveResearch(results)
+	if err != nil {
+		fmt.Println("SAVE ERROR:", err)
+	}
+
 	repository.SaveUserHistory(userID, results)
 
 	return results, nil
@@ -116,4 +126,19 @@ func (s *ScopusService) GetResearch(userID string, limit int) ([]model.Research,
 
 func (s *ScopusService) GetResearchWithFilter(year, university string) ([]model.Research, error) {
 	return repository.GetResearchWithFilter(year, university)
+}
+
+// 🔥 export ใช้ DB ล้วน
+func (s *ScopusService) ExportAllResearch(limit int) ([]model.Research, error) {
+
+	data, err := repository.GetAllResearch()
+	if err != nil {
+		return nil, err
+	}
+
+	if len(data) > limit {
+		data = data[:limit]
+	}
+
+	return data, nil
 }

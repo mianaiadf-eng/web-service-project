@@ -19,6 +19,10 @@ func main() {
 	r := gin.Default()
 
 	r.GET("/research", middleware.CheckPackage(), handler.GetResearch)
+	r.GET("/export",
+	middleware.CheckPackage(),
+	handler.ExportCSV,
+    )
 
 	fmt.Println("Server running at http://localhost:8080")
 	r.Run(":8080")

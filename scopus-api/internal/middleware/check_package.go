@@ -76,6 +76,26 @@ func CheckPackage() gin.HandlerFunc {
 			return
 		}
 
+		// 🔥 จำกัด export เฉพาะ PRO
+if c.FullPath() == "/export" && pkg != "pro" {
+	mu.Unlock()
+	c.JSON(http.StatusForbidden, gin.H{
+		"error": "export CSV allowed for PRO package only",
+	})
+	c.Abort()
+	return
+}
+
+		// 🔥 เพิ่มตรงนี้
+		if c.FullPath() == "/export" && pkg != "pro" {
+			mu.Unlock()
+			c.JSON(http.StatusForbidden, gin.H{
+				"error": "export CSV allowed for PRO package only",
+			})
+			c.Abort()
+			return
+		}
+
 		// 🔥 เช็ค limit ต่อวัน
 		if usage[userID] > dailyLimit {
 			mu.Unlock()

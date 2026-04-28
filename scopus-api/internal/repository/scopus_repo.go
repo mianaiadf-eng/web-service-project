@@ -7,7 +7,7 @@ import (
 	"scopus-api/internal/model"
 )
 
-func SaveResearch(results []model.Research) {
+func SaveResearch(results []model.Research) error {
 
 	ctx := context.Background()
 
@@ -34,9 +34,11 @@ func SaveResearch(results []model.Research) {
 		)
 
 		if err != nil {
-			fmt.Printf("Insert error: %v | title: %s\n", err, r.Title)
+			return err // 🔥 สำคัญมาก
 		}
 	}
+
+	return nil
 }
 
 func GetAllResearch() ([]model.Research, error) {
