@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"sort" // แพรpro
 	"strconv"
 	"strings"
 	"time"
@@ -100,11 +101,15 @@ func (s *ScopusService) GetResearch(userID string, limit int) ([]model.Research,
 			doi = &d
 		}
 
+		// 🧠 แพรpro: ดึง affiliation
+		affil := getString(item, "affilname")
+
 		results = append(results, model.Research{
-			Title:   title,
-			Journal: journal,
-			Year:    year,
-			DOI:     doi,
+			Title:      title,
+			Journal:    journal,
+			Year:       year,
+			DOI:        doi,
+			University: affil, // แพรpro
 		})
 	}
 
@@ -114,6 +119,77 @@ func (s *ScopusService) GetResearch(userID string, limit int) ([]model.Research,
 	return results, nil
 }
 
-func (s *ScopusService) GetResearchWithFilter(year, university string) ([]model.Research, error) {
-	return repository.GetResearchWithFilter(year, university)
+// =====================================
+// 🔥 PRO FILTER (รองรับอนาคต multi-filter)
+// =====================================
+func (s *ScopusService) GetResearchWithFilter(year, university, journal string) ([]model.Research, error) {
+	return repository.GetResearchWithFilter(year, university, journal)
+}
+
+// =====================================
+// 🧠 PRO ANALYTICS
+// =====================================
+func (s *ScopusService) AnalyzeResearch(data []model.Research) map[string]interface{} {
+
+	yearCount := map[int]int{}
+	journalCount := map[string]int{}
+	byUniversity := map[string]int{}
+
+	for _, r := range data {
+
+		if r.Year != 0 {
+			yearCount[r.Year]++
+		}
+
+		if r.Journal != "" {
+			journalCount[r.Journal]++
+		}
+
+		if r.University != "" {
+			byUniversity[r.University]++
+		}
+	}
+
+	// ✅ total จากการรวมจริง
+	total := 0
+	for _, v := range byUniversity {
+		total += v
+	}
+
+	return map[string]interface{}{
+		"total":         total,
+		"by_year":       yearCount,
+		"by_journal":    journalCount,
+		"by_university": byUniversity,
+		"top_journals":  topN(journalCount, 5),
+	}
+}
+// =====================================
+// 🏆 แพรpro: Top N helper
+// =====================================
+type Stat struct {
+	Name  string `json:"name"`
+	Count int    `json:"count"`
+}
+
+func topN(m map[string]int, n int) []Stat {
+
+	var stats []Stat
+
+	for k, v := range m {
+		stats = append(stats, Stat{
+			Name:  k,
+			Count: v,
+		})
+	}
+
+	sort.Slice(stats, func(i, j int) bool {
+		return stats[i].Count > stats[j].Count
+	})
+
+	if len(stats) > n {
+		stats = stats[:n]
+	}
+
+	return stats
 }
