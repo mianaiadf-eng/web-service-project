@@ -67,7 +67,7 @@ func CheckPackage() gin.HandlerFunc {
 
 		case "pro":
 			dailyLimit = 200
-			dataLimit = 1000
+			dataLimit = 500
 
 		default:
 			mu.Unlock()
