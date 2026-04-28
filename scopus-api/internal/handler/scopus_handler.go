@@ -1,7 +1,10 @@
 package handler
 
 import (
+
+	"encoding/csv"  
 	"net/http"
+	"strconv"  
 
 	"scopus-api/internal/model"
 	"scopus-api/internal/service"
@@ -120,4 +123,53 @@ func GetAnalytics(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, response)
+}
+
+func ExportCSV(c *gin.Context) {
+
+	userID := c.GetString("userID")
+	pkg := c.GetString("package")
+	limit := c.GetInt("dataLimit")
+
+	// 🔒 PRO ONLY
+	if pkg != "pro" {
+		c.JSON(http.StatusForbidden, gin.H{
+			"error": "export CSV allowed for pro package only",
+		})
+		return
+	}
+
+	s := service.NewScopusService()
+
+	data, err := s.ExportUserHistory(userID, limit)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.Header("Content-Disposition", "attachment; filename=history.csv")
+	c.Header("Content-Type", "text/csv")
+
+	writer := csv.NewWriter(c.Writer)
+
+	// header
+	writer.Write([]string{"Title", "Journal", "Year", "DOI", "University"})
+
+	for _, r := range data {
+
+		doi := ""
+		if r.DOI != nil {
+			doi = *r.DOI
+		}
+
+		writer.Write([]string{
+			r.Title,
+			r.Journal,
+			strconv.Itoa(r.Year),
+			doi,
+			r.University,
+		})
+	}
+
+	writer.Flush()
 }

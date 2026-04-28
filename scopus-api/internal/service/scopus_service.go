@@ -193,3 +193,17 @@ func topN(m map[string]int, n int) []Stat {
 
 	return stats
 }
+
+func (s *ScopusService) ExportUserHistory(userID string, limit int) ([]model.Research, error) {
+
+	data, err := repository.GetUserHistory(userID) // 🔥 ต้องมี func นี้ใน repo
+	if err != nil {
+		return nil, err
+	}
+
+	if len(data) > limit {
+		data = data[:limit]
+	}
+
+	return data, nil
+}

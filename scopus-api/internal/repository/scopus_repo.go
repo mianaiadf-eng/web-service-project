@@ -193,3 +193,40 @@ func SaveUserHistory(userID string, results []model.Research) error {
 
 	return nil
 }
+
+func GetUserHistory(userID string) ([]model.Research, error) {
+
+	rows, err := config.DB.Query(`
+	SELECT r.title, r.journal, r.year, r.doi, r.university
+	FROM user_research_history h
+	JOIN research r ON h.doi = r.doi
+	WHERE h.user_id = $1
+`, userID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var results []model.Research
+
+	for rows.Next() {
+		var r model.Research
+		var doi *string
+
+		err := rows.Scan(
+			&r.Title,
+			&r.Journal,
+			&r.Year,
+			&doi,
+			&r.University,
+		)
+		if err != nil {
+			return nil, err
+		}
+
+		r.DOI = doi
+		results = append(results, r)
+	}
+
+	return results, nil
+}
