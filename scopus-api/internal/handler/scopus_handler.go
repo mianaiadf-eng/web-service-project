@@ -142,7 +142,6 @@ func ExportCSV(c *gin.Context) {
 
 	userID := c.GetString("userID")
 	pkg := c.GetString("package")
-	limit := c.GetInt("dataLimit")
 
 	// 🔒 PRO ONLY
 	if pkg != "pro" {
@@ -154,7 +153,7 @@ func ExportCSV(c *gin.Context) {
 
 	s := service.NewScopusService()
 
-	data, err := s.ExportUserHistory(userID, limit)
+	data, err := s.ExportUserHistory(userID)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
@@ -193,6 +192,7 @@ func GetLimit(c *gin.Context) {
 	pkg := c.GetString("package")
 	usage := c.GetInt("usage")
 	dailyLimit := c.GetInt("dailyLimit")
+	
 
 	remaining := dailyLimit - usage
 	if remaining < 0 {
