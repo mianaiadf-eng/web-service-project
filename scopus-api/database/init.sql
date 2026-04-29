@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict dLbagLGWoHnBXx0aogkOFpP4gdUvKglziwPDyv6QG8MladOKj5nJqNQerIkzhpc
+\restrict rPznyFNephwbCH2aWIDaKimSuCs9bs09QXNtjrz24fcRkC9RyuKVJM9xNYRWC9N
 
 -- Dumped from database version 18.3 (Debian 18.3-1.pgdg13+1)
 -- Dumped by pg_dump version 18.3 (Debian 18.3-1.pgdg13+1)
@@ -123,7 +123,8 @@ CREATE TABLE public.users (
     user_id text,
     package public.user_package DEFAULT 'free'::public.user_package,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    api_key text
+    api_key text,
+    password text
 );
 
 
@@ -1437,6 +1438,505 @@ COPY public.research (id, title, journal, year, doi, cited, university, created_
 --
 
 COPY public.user_research_history (id, user_id, doi, title, year, created_at) FROM stdin;
+1	user_pro	10.55446/IJE.2026.3606	MORPHOLOGICAL ABNORMALITIES AND SENSILLA DAMAGE IN THE FRUIT FLY DROSOPHILA MELANOGASTER INDUCED BY UV-C RADIATION	2027	2026-04-29 09:50:18.509986
+2	user_pro	10.25133/JPSSv352027.010	A Sustainable Sufficiency Economy Model Based on Community Identity in Security-Challenged Areas: A Case Study of Thailand’s Southern Border Provinces	2027	2026-04-29 09:50:18.513876
+3	user_pro	10.1016/j.fuel.2026.139511	Machine learning-guided catalyst selection for bio-oil hydrodeoxygenation to maximize hydrocarbon yields toward renewable naphtha and sustainable aviation fuel	2026	2026-04-29 09:50:18.514824
+4	user_pro	10.1093/cid/ciaf373	Troubleshooting the Pitfalls of TMP-SMX Susceptibility Interpretation in Nocardia Species	2026	2026-04-29 09:50:18.515733
+5	user_pro	10.1108/BFJ-12-2024-1326	Cultural influences on vegetarian food consumption: insights from Germany and Thailand using the motivation-opportunity-ability model	2026	2026-04-29 09:50:18.516639
+6	user_pro	10.34190/ejel.24.1.4409	AI-Supported Learning in Online Discussion Forums: A Scoping Review	2026	2026-04-29 09:50:18.51753
+7	user_pro	10.31893/multiscience.2026398	A study on Puju in Yuncheng City, Shanxi Province, China	2026	2026-04-29 09:50:18.518382
+8	user_pro	10.34190/ejel.24.1.3990	Development and Validation of an AI Literacy Scale for Pre-Service Teachers in Thailand	2026	2026-04-29 09:50:18.519234
+9	user_pro	10.1038/s41598-026-41177-z	Identifying GFAP-expressing cell susceptibility to SARS-CoV-2 infection using human iPSC-derived neural cells	2026	2026-04-29 09:50:18.520089
+10	user_pro	10.1038/s41598-026-39102-5	Comparative evaluation of stability, efficacy, and sterility in five repackaged intravitreal anti-vascular endothelial growth factor medications	2026	2026-04-29 09:50:18.520948
+11	user_pro	10.1186/s12906-026-05247-z	Antioxidant and selective cytotoxic activity of Dipterocarpus obtusifolius flower extract against gastrointestinal cancer, with bioactive component profiling	2026	2026-04-29 09:50:18.521529
+12	user_pro	10.1186/s13020-025-01285-w	Panduratin A from Boesenbergia rotunda suppresses hepatitis B virus by targeting HNF1α and synergizing with antiviral agents	2026	2026-04-29 09:50:18.522315
+13	user_pro	10.1038/s41598-026-39007-3	MoVe: an integrated tool to explore the relationship between human mobility and vector-borne disease	2026	2026-04-29 09:50:18.523063
+14	user_pro	10.1186/s41043-025-01176-8	Age- and sex-specific reference values for plasma lipids and lipoproteins in thai adults: a national health examination survey analysis	2026	2026-04-29 09:50:18.523968
+15	user_pro	10.1186/s12903-026-08054-7	Periodontitis awareness and knowledge levels among undergraduate dental students	2026	2026-04-29 09:50:18.52461
+16	user_pro	10.1038/s43856-026-01437-5	Machine learning–based cfDNA fragmentation profiling using automated capillary electrophoresis for early detection of hepatocellular carcinoma	2026	2026-04-29 09:50:18.525446
+17	user_pro	10.1186/s12877-025-06935-0	Psychometric validation and cross-cultural adaptation of the dementia knowledge assessment Scale-Thai (DKAS-Thai)	2026	2026-04-29 09:50:18.526263
+18	user_pro	10.1038/s41598-025-32122-7	New design of plate implant for bone healing assessment using frequency measurement: a biomechanical cadaveric study	2026	2026-04-29 09:50:18.527044
+19	user_pro	10.1038/s41598-026-35524-3	Hematological and clinical-chemistry parameters of kratom users: a comparative study of users and non-users in Southern Thailand	2026	2026-04-29 09:50:18.527634
+20	user_pro	10.1038/s41598-025-31876-4	Response surface optimization of abiotic elicitors for betalain production and antioxidant capacity in Celosia argentea cell suspension cultures	2026	2026-04-29 09:50:18.528483
+21	user_pro	10.1038/s41598-025-33360-5	Cannabidiol perturbs macrophage polarization by interfering with the metabolic flux and PI3K/Akt pathway	2026	2026-04-29 09:50:18.529352
+22	user_pro	10.1038/s41598-026-36851-1	Correction: Somatic mutations in the TG and RELA genes specific for radioiodine-refractory thyroid cancer (Scientific Reports, (2025), 15, 1, (22894), 10.1038/s41598-025-05605-w)	2026	2026-04-29 09:50:18.53017
+23	user_pro	10.1186/s12906-025-05191-4	Violacein: a natural antibacterial agent empowered by film-forming sprays for topical applications	2026	2026-04-29 09:50:18.531034
+24	user_pro	10.1186/s12985-025-03053-6	A novel potent autophagy inhibitor HM-013 limits production of infectious dengue virus particles	2026	2026-04-29 09:50:18.531606
+25	user_pro	10.1038/s41598-026-39466-8	Integrating deep learning with physics based modeling enables high precision antibody antigen interface prediction	2026	2026-04-29 09:50:18.532467
+26	user_pro	10.1186/s12906-026-05300-x	Preparation, characterization and evaluation of microemulsions containing Clausena excavata Burm. f. leaf essential oil	2026	2026-04-29 09:50:18.533269
+27	user_pro	10.1186/s13068-026-02751-9	Process optimization and transcriptomic profiling reveal an inverse relationship between gene expression and succinic acid production from sugarcane leaves	2026	2026-04-29 09:50:18.534023
+28	user_pro	10.1186/s12872-025-05430-z	Factors associated with 30-day mortality in patients with acute heart failure presenting to the emergency department: a retrospective cohort study	2026	2026-04-29 09:50:18.534592
+29	user_pro	10.1038/s41598-025-34667-z	Prevalence of low bone mineral density and associated plasma metabolite alterations in thalassemia	2026	2026-04-29 09:50:18.535368
+30	user_pro	10.1007/s44187-026-00861-9	Optimization of potent probiotic strain, Lacticaseibacillus paracasei HII01, mediated fermentation of Camellia sinensis var. Assamica to achieve high phenolic content and antioxidation: a pilot study	2026	2026-04-29 09:50:18.536164
+31	user_pro	10.1038/s41598-026-39147-6	Seroprevalence and determinants of hepatitis E virus infection among people living with HIV in Chiang Mai, Thailand: a cross-sectional analysis	2026	2026-04-29 09:50:18.537006
+32	user_pro	10.1186/s12913-026-14176-z	Bridging public health emergency and pharmaceutical supply chain preparedness: a scoping review and framework synthesis	2026	2026-04-29 09:50:18.537646
+33	user_pro	10.1038/s41598-025-29347-x	Machine learning approach using electrochemical immunosensor data for precise classification of Opisthorchis viverrini infection	2026	2026-04-29 09:50:18.538427
+34	user_pro	10.1007/s44187-025-00745-4	Brewer’s spent grain particle size and substitution level influence physicochemical and sensory properties of enriched cookies	2026	2026-04-29 09:50:18.539342
+35	user_pro	10.1186/s13765-025-01069-8	Mealworm frass-based biofertilizer improves soil nutrient profile and Chinese kale growth parameters towards sustainable agriculture	2026	2026-04-29 09:50:18.540123
+36	user_pro	10.1007/s44463-025-00030-z	From slaughterhouse waste to functional feed: pilot-scale bovine blood hydrolysate improves antioxidant activities and meat quality in slow-growing chickens	2026	2026-04-29 09:50:18.540984
+37	user_pro	10.1038/s41597-025-06325-6	Chromosome-scale, haplotype-resolved genome of Bighead catfish for conservation and aquaculture	2026	2026-04-29 09:50:18.541625
+38	user_pro	10.1007/s44187-025-00744-5	Vinegar production from Thai rice varieties with emphasis on the biological properties of Sangyod rice vinegar	2026	2026-04-29 09:50:18.542429
+39	user_pro	10.1038/s41598-025-34661-5	Human adipose stem cell-derived exosomes modulate the transcriptome of D-galactose-Induced neuronal cells	2026	2026-04-29 09:50:18.543269
+40	user_pro	10.1038/s41598-025-33265-3	Characterization and stability of plasmid DNA calcium nanoparticles using a simple formulation for gene therapy	2026	2026-04-29 09:50:18.544118
+41	user_pro	10.1038/s41598-026-41247-2	Evaluating long-read metagenomics for bloodstream infection diagnostics: a pilot study from a Thai Tertiary Hospital	2026	2026-04-29 09:50:18.545279
+42	user_pro	10.1038/s41598-025-31957-4	Toughness enhancement of geopolymer stabilized laterites using para rubber latex for sustainable base and subbase applications	2026	2026-04-29 09:50:18.546129
+43	user_pro	10.1007/s43621-025-02538-2	Integrating LSTM-based VPD forecasting into IoT-driven smart irrigation systems in tropical orchards	2026	2026-04-29 09:50:18.546976
+44	user_pro	10.1186/s12906-025-05198-x	Identification and pharmacological characterization of a natural folipastatin as a CFTR inhibitor and potential anti-secretory agent in a human colonoid model	2026	2026-04-29 09:50:18.547556
+45	user_pro	10.1186/s10194-026-02269-3	Prediction of medication overuse in patients with migraine using cox regression and machine learning: a real-world cohort	2026	2026-04-29 09:50:18.548326
+46	user_pro	10.1186/s40942-026-00810-9	Anti-VEGF versus laser therapy for retinopathy of prematurity: a systematic review and meta-analysis focusing on recurrence patterns and retreatment needs	2026	2026-04-29 09:50:18.549203
+47	user_pro	10.1038/s41598-026-36893-5	Experimental and theoretical evaluation of geometry-dependent doxorubicin loading onto cerium oxide nanoparticles via van der Waals interaction modeling	2026	2026-04-29 09:50:18.550036
+48	user_pro	10.1186/s12917-025-05168-y	Pathogenic piscine intestinal coccidia infection alters gut microbiome in juvenile Asian seabass (Lates calcarifer)	2026	2026-04-29 09:50:18.550623
+49	user_pro	10.1007/s44187-025-00780-1	Optimization of palm kernel oil extraction using the SC-CO₂ technique from palm oil mill by-products in Thailand	2026	2026-04-29 09:50:18.551376
+50	user_pro	10.1007/s11033-025-11353-x	Protective effects of ethanolic lychee (Litchi chinensis Sonn.) seed extract against adipogenesis and inflammation in 3T3-L1 cells	2026	2026-04-29 09:50:18.553727
+51	user_pro	10.1186/s12348-025-00565-8	Emerging zoonotic ocular sporotrichosis in southeast Asia: a case series from Thailand and systematic review of regional reports	2026	2026-04-29 09:50:18.554697
+52	user_pro	10.1186/s12982-026-01384-5	Enhancing community health services through a health needs assessment approach during the COVID-19 pandemic in Eastern Thailand	2026	2026-04-29 09:50:18.55555
+53	user_pro	10.1186/s12889-025-25972-3	Burdens and patterns of gastrointestinal diseases in Thai children: an analysis based on Thai national health coverage data	2026	2026-04-29 09:50:18.556327
+54	user_pro	10.1007/s00248-026-02727-0	Microbial Communities of the Mycoheterotrophic Plant Thismia gardneriana in a Lowland Tropical Rainforest of Southern Thailand	2026	2026-04-29 09:50:18.55702
+55	user_pro	10.1038/s41598-026-36072-6	Expression of sphingosine-1-phosphate receptor 1 in the brain of fatal cerebral malaria	2026	2026-04-29 09:50:18.557485
+56	user_pro	10.1186/s12913-026-14104-1	eHealth competency needs in the Mekong border region: a GLMM analysis of primary care personnel in Nong Khai, Thailand	2026	2026-04-29 09:50:18.558107
+57	user_pro	10.1177/11782234251407914	Comparative Analysis of Equivocal (2+) and Positive (3+) HER2 Immunohistochemistry (IHC) and Bright-Field Dual-Color In Situ Hybridization (DISH) in Primary Breast Cancer From 1,307 Node-Positive Patients	2026	2026-04-29 09:50:18.561469
+58	user_pro	10.1186/s12883-026-04650-w	Screening for neuronal antibodies in cognitive impairment and dementia clinics: a prospective multicenter study	2026	2026-04-29 09:50:18.562174
+59	user_pro	10.1186/s12906-026-05269-7	Phytochemical profiling of Syzygium nervosum fruit pulp extracts and their modulatory effects on oxidative stress and cytokine production	2026	2026-04-29 09:50:18.562892
+60	user_pro	10.1038/s41598-025-30435-1	Development and cross-amplification of novel SSR markers for population genetic analysis of Kitti’s hog-nosed bat (Craseonycteris thonglongyai) in Thailand	2026	2026-04-29 09:50:18.563431
+61	user_pro	10.1186/s12889-025-26106-5	When the home becomes a hazard: fall risks among older adults in Thailand’s coastal rural communities	2026	2026-04-29 09:50:18.564137
+62	user_pro	10.1186/s12879-025-12355-7	Genetic characteristics and epidemiology of influenza and respiratory syncytial viruses associated with acute respiratory infections in Thailand	2026	2026-04-29 09:50:18.564853
+63	user_pro	10.1007/s11033-026-11648-7	Enzalutamide effectively inhibits the growth of meningiomas via p21-dependent senescence induction	2026	2026-04-29 09:50:18.565402
+64	user_pro	10.1186/s12902-026-02165-6	Incidence and risk factors for osteoporosis in people with type 2 diabetes mellitus in Thailand	2026	2026-04-29 09:50:18.566081
+65	user_pro	10.1186/s12870-026-08195-5	Adaptive photosynthetic in drought-resistant and susceptible Jerusalem artichoke genotypes under elevated CO₂ and light intensity during drought stress	2026	2026-04-29 09:50:18.566785
+66	user_pro	10.1186/s12913-026-14161-6	A cost analysis of speech-language pathology applications for telepractice during the COVID-19 pandemic	2026	2026-04-29 09:50:18.56732
+67	user_pro	10.1038/s41598-026-35333-8	Formulation of bacterial cellulose nanofibrils incorporated with xanthone as functional green ingredients for cosmeceutical products	2026	2026-04-29 09:50:18.568076
+68	user_pro	10.1038/s41598-026-42432-z	Internal gelation-based alginate hydrogel films incorporating Quercus infectoria gall extract for multifunctional wound dressing applications	2026	2026-04-29 09:50:18.568822
+69	user_pro	10.1007/s44187-025-00781-0	Stimulation of growth, polysaccharides, and triterpenoids formation in antler-type fruiting body of Ganoderma sichuanense using light-emitting diodes	2026	2026-04-29 09:50:18.569358
+70	user_pro	10.1038/s41598-025-34196-9	Characterization and comparative analysis of urinary bacterial microbiome profiling in healthy cats and cats with feline idiopathic cystitis	2026	2026-04-29 09:50:18.570031
+71	user_pro	10.1007/s44202-026-00656-0	Confirmatory factor analysis and reliability of the parental play beliefs scale Thai version in preschooler parents	2026	2026-04-29 09:50:18.57246
+72	user_pro	10.1186/s12917-026-05331-z	Short-term changes in clinical status, cardiovascular function and heart rate variability after staphylectomy and alarplasty in French Bulldogs with brachycephalic obstructive airway syndrome	2026	2026-04-29 09:50:18.573177
+73	user_pro	10.1186/s13019-025-03760-9	Impact of respiratory muscle-stretching exercise on chest expansion and shoulder mobility post-thoracotomy: a randomized controlled trial	2026	2026-04-29 09:50:18.575425
+74	user_pro	10.1186/s12879-026-12882-x	Distinct clinical profiles of nongonococcal gram-negative septic arthritis: a retrospective analysis from a tertiary center	2026	2026-04-29 09:50:18.576117
+75	user_pro	10.1186/s12873-025-01433-3	Diagnostic performance of procalcitonin and presepsin in sepsis: a systematic review and meta-analysis	2026	2026-04-29 09:50:18.576821
+76	user_pro	10.1186/s12906-026-05255-z	Immunostimulant activity of Centella asiatica (ECa 233) on RAW 264.7 macrophages	2026	2026-04-29 09:50:18.577303
+77	user_pro	10.1186/s12889-026-26478-2	Treatment costs and determinants in PM2.5-attributable respiratory diseases: evidence from Northern Thailand	2026	2026-04-29 09:50:18.578002
+78	user_pro	10.1186/s12906-025-05175-4	Therapeutic effects of curcumin on upper gastrointestinal diseases: a systematic review and meta-analysis of animal studies	2026	2026-04-29 09:50:18.579713
+79	user_pro	10.1186/s12903-026-07754-4	Early maxillary arch development in unilateral cleft lip and palate: a retrospective 3D morphometric analysis following nasoalveolar molding and cheiloplasty	2026	2026-04-29 09:50:18.580574
+80	user_pro	10.1038/s41598-025-32893-z	Lactiplantibacillus plantarum from Thai fermented pork with inulin ameliorates metabolic disturbances through proteomic mechanisms	2026	2026-04-29 09:50:18.581433
+81	user_pro	10.1038/s41522-026-00921-z	Modeling diet-gut microbiome interactions and prebiotic responses in Thai adults	2026	2026-04-29 09:50:18.582114
+82	user_pro	10.1038/s41598-026-45717-5	In-situ magnetic field-controlled synthesis of SnO2-SnO nanoparticle films for enhanced photovoltaic self-cleaning and anti-soiling	2026	2026-04-29 09:50:18.582855
+83	user_pro	10.1186/s13568-026-02027-3	Applying recombinant antibodies for quality control of mixed-culture peanut bradyrhizobial inoculant	2026	2026-04-29 09:50:18.583487
+84	user_pro	10.1038/s41598-025-03763-5	Involvement of AKT/β-catenin in Enhanced Osteogenesis by Cannabidiol in Bone Stromal Cells Harvested from Human Tori	2026	2026-04-29 09:50:18.584726
+85	user_pro	10.1186/s12889-026-26304-9	Time-series-based forecasting of accident-related referrals to Maharaj Nakorn Chiang Mai Hospital, Northern Thailand, during each year and especially the “Seven dangerous Days” periods	2026	2026-04-29 09:50:18.585486
+86	user_pro	10.1038/s41598-026-46708-2	Repurposing FDA-approved drugs as multi-target neuroprotective agents for Alzheimer’s disease via computational screening and experimental validation	2026	2026-04-29 09:50:18.586287
+87	user_pro	10.1038/s41598-025-33639-7	BEmXRD-Nets framework for novel machine learning models to predict crystal energy with diversity structures	2026	2026-04-29 09:50:18.587302
+88	user_pro	10.22034/IJHCUM.2026.01.07	Sustainable aquaculture and urban management: leveraging Tilapia farming for economic and social development	2026	2026-04-29 09:50:18.588038
+89	user_pro	10.1038/s41598-026-35172-7	Intramedullary nail design for Thais with novel multi-femur shape optimization approach	2026	2026-04-29 09:50:18.588586
+90	user_pro	10.1186/s42238-026-00415-x	Phase II randomized controlled trial comparing traditional Thai cannabis-based medicine with lorazepam for insomnia treatment	2026	2026-04-29 09:50:18.589348
+91	user_pro	10.1007/s43939-026-00563-0	Advanced carboxymethyl chitosan/polyvinyl alcohol films functionalized with Aloe vera rind extract exhibiting enhanced mechanical and antimicrobial properties	2026	2026-04-29 09:50:18.59011
+92	user_pro	10.1186/s44424-025-00044-w	Characterization of Canine Peripheral Blood Stem Cells After Electroacupuncture Stimulation	2026	2026-04-29 09:50:18.591074
+93	user_pro	10.1038/s41598-026-35326-7	Chemical and biological profiling of bioactive metabolites from the invertebrate-pathogenic fungus Gibellula scorpioides BCC 39989	2026	2026-04-29 09:50:18.591828
+94	user_pro	10.1186/s12903-026-07863-0	Comparison of gargling and swabbing methods for delivering pre-procedural povidone-iodine mouthrinse: a randomised crossover trial	2026	2026-04-29 09:50:18.592365
+95	user_pro	10.1186/s12903-025-07441-w	Effect of four chemical reagents on the shear bond strength of four different metal alloys bonded with self-adhesive resin cement	2026	2026-04-29 09:50:18.593078
+96	user_pro	10.1038/s41598-026-40749-3	Non-thermal atmospheric pressure plasma inactivation of Paenibacillus larvae, the causative agent of American foulbrood in honeybees (Apis mellifera)	2026	2026-04-29 09:50:18.593802
+97	user_pro	10.1186/s12995-026-00504-w	Mental health impacts of climate-related hazards among farmers: evidence from a community-based study	2026	2026-04-29 09:50:18.594341
+98	user_pro	10.1038/s41598-026-39009-1	Bee pollen-derived peptide with dual DPP-IV Inhibition and glucose transport modulation	2026	2026-04-29 09:50:18.595064
+99	user_pro	10.1186/s12889-026-26488-0	Association between PM2.5 exposure and blood pressure among young adults in Asia: systematic review and meta-analysis	2026	2026-04-29 09:50:18.595824
+100	user_pro	10.5267/j.dsl.2025.10.009	A model for replacing human labor with industrial robots in the industrial production sector to promote sustainable growth	2026	2026-04-29 09:50:18.59635
+101	user_pro	10.1186/s13104-025-07587-4	Perceived knowledge and intention to prepare advance directives: a cross-sectional study of Thai gynecologic cancer patients and families	2026	2026-04-29 09:50:18.597156
+102	user_pro	10.1186/s12909-026-08703-z	Training peer supporters in a single-centre medical school: a mixed-methods evaluation using Kirkpatrick’s Four-Level model	2026	2026-04-29 09:50:18.598006
+103	user_pro	10.1186/s13638-025-02556-8	Performance evaluation of a machine learning-driven dual broadband antenna with beam steering for 5G sub-6 GHz applications	2026	2026-04-29 09:50:18.598633
+104	user_pro	10.1007/s00383-025-06249-7	Outcomes of major liver resection for children with hepatoblastoma weighing less than 10 kg: avoiding liver transplantation with extended or extreme resection	2026	2026-04-29 09:50:18.600169
+105	user_pro	10.1038/s41598-025-32790-5	Cost-utility and budget impact analysis of desmopressin for treating monosymptomatic nocturnal enuresis in Thai children	2026	2026-04-29 09:50:18.602513
+106	user_pro	10.1186/s13018-025-06567-5	The feasibility of the lateral antebrachial cutaneous nerve transfer for median sensory restoration: a cadaveric study	2026	2026-04-29 09:50:18.604028
+107	user_pro	10.1038/s41598-026-40287-y	Contextual anatomy-guided deep learning for accurate fovea segmentation in diabetic retinopathy fundus images	2026	2026-04-29 09:50:18.604713
+108	user_pro	10.1186/s40780-025-00529-z	Isosakuranetin ameliorates hypertension in rats induced by L-NAME	2026	2026-04-29 09:50:18.605404
+109	user_pro	10.1007/s43621-025-02389-x	MICP treatment techniques for sandy soil stabilization through shear wave velocity monitoring	2026	2026-04-29 09:50:18.606034
+110	user_pro	10.1038/s41598-026-37821-3	Development and evaluation of recombinant dense granule 14 for serological diagnosis of Toxoplasma gondii infection in domestic cats	2026	2026-04-29 09:50:18.607388
+111	user_pro	10.1186/s12873-025-01443-1	Respiratory National Early Warning Score for 28-day mortality prediction in suspected sepsis patients in the emergency department	2026	2026-04-29 09:50:18.608081
+112	user_pro	10.1186/s12879-025-12307-1	Plasma proteomic signatures in HIV-infected individuals post-SARS-CoV-2 infection	2026	2026-04-29 09:50:18.608593
+113	user_pro	10.1186/s41687-026-01017-0	Validity and reliability testing of the Thai version of the emPHasis-10 questionnaire for patients with pulmonary arterial hypertension	2026	2026-04-29 09:50:18.609354
+114	user_pro	10.1186/s12913-025-13994-x	Incident and predictors of 30-day mortality in critically ill patients after admission to the emergency department in the central region of Thailand: a prospective observational study	2026	2026-04-29 09:50:18.609957
+115	user_pro	10.1186/s12906-026-05308-3	Retraction Note: Preclinical studies of toxicity and anti-cholangiocarcinoma activity of the standardized capsule formulation of atractylodes lancea (Thunb.) DC (BMC Complementary Medicine and Therapie., s23, 186 (2023), 10.1186/s12906-023-03992-z)	2026	2026-04-29 09:50:18.610438
+116	user_pro	10.1016/j.team.2026.01.002	Exploring factors influencing micromobility adoption in a tourism-centric island city, Phuket	2026	2026-04-29 09:50:18.612474
+117	user_pro	10.1186/s13054-026-05942-w	Deep learning approaches for time series prediction of renal recovery in medical critically Ill patients with acute kidney injury: LSTM, GRU, and transformer models	2026	2026-04-29 09:50:18.616118
+118	user_pro	10.1186/s12904-026-01989-2	Charlson comorbidity index and palliative performance scale predict prognosis in dialysis patients: a retrospective cohort study	2026	2026-04-29 09:50:18.616877
+119	user_pro	10.1186/s12903-026-07862-1	Evaluating the feasibility of calcium silicate-based sealers for strip perforation repair compared to mineral trioxide aggregate: an in-vitro study on bond strength	2026	2026-04-29 09:50:18.617436
+120	user_pro	10.1007/s43621-026-02873-y	Explainable artificial intelligence for urban well-being in sustainable city ecosystems	2026	2026-04-29 09:50:18.61818
+121	user_pro	10.1007/s44187-026-00853-9	Comparative analysis of bioactive compounds and physicochemical properties of honeys from Thai local community producer, commercial producers and imported honeys	2026	2026-04-29 09:50:18.618897
+122	user_pro	10.1016/j.sasc.2026.200453	Formal verification of time-bounded BPMN model with message broker using timed automata	2026	2026-04-29 09:50:18.61945
+123	user_pro	10.18502/npt.v13i1.20601	Effectiveness of a self-regulation program using iPad-assisted communication in intubated patients with respiratory failure: A randomized controlled trial	2026	2026-04-29 09:50:18.620169
+124	user_pro	10.1038/s41598-025-32789-y	Vitexin induces apoptosis and enhances daunorubicin efficacy in acute leukemia via modulation of the HIF-1α/Bcl-2/caspase-3 pathway	2026	2026-04-29 09:50:18.620885
+125	user_pro	10.1007/s44155-026-00368-9	Nutrition literacy and food consumption behaviors among undergraduate students in northern Thailand using a mixed method approach	2026	2026-04-29 09:50:18.621428
+126	user_pro	10.1038/s41598-026-35503-8	Colorimetric loop-mediated isothermal amplification for the rapid and visual detection of hepatitis B virus	2026	2026-04-29 09:50:18.623598
+127	user_pro	10.1186/s12884-025-08304-6	Transient hydrops fetalis after interstitial laser coagulation and amnioreduction for treating placental chorioangioma	2026	2026-04-29 09:50:18.624348
+128	user_pro	10.1038/s41598-026-46157-x	Impact of FloTrac/EV1000-guided intraoperative hemodynamic optimization on postoperative outcomes in cardiac valve surgery: a randomized controlled trial	2026	2026-04-29 09:50:18.625052
+129	user_pro	10.1007/s00590-026-04667-4	Leg compression for preventing hypotension after spinal anesthesia in elderly hip fracture patients	2026	2026-04-29 09:50:18.625621
+130	user_pro	10.1186/s12998-025-00624-w	A randomized controlled trial of a supervised self-administered program for chronic plantar fasciitis	2026	2026-04-29 09:50:18.626512
+131	user_pro	10.1186/s12910-026-01379-6	Assessing satisfaction and performance of the CUREC electronic submission system	2026	2026-04-29 09:50:18.627262
+132	user_pro	10.1038/s41598-026-38825-9	Enhanced lycopene fortification in eggs using poultry feed containing a carotenoid-oil preparation derived from metabolically engineered baker’s yeast	2026	2026-04-29 09:50:18.627968
+133	user_pro	10.1186/s12913-026-14094-0	Cost-utility and budget impact analysis of biosimilar trastuzumab for early-stage HER2-positive breast cancer in Thailand: an updated evaluation supporting expanded access	2026	2026-04-29 09:50:18.628499
+134	user_pro	10.1186/s12879-026-12581-7	Azathioprine for remission maintenance in anti-interferon-γ autoantibody-associated immunodeficiency syndrome- a retrospective single-center cohort study	2026	2026-04-29 09:50:18.629353
+135	user_pro	10.1186/s41182-026-00920-y	Management of plica polonica in the wake of refractory head lice infestation: a case report	2026	2026-04-29 09:50:18.630094
+136	user_pro	10.1007/s44155-025-00346-7	A scoping review of death preparation practices and sociocultural determinants in Thai society	2026	2026-04-29 09:50:18.630787
+137	user_pro	10.1186/s12877-025-06921-6	Correction: Effects of home-based, low-intensity exergaming on cognitive function of individuals with mild cognitive impairment: a study protocol for a randomized controlled trial (BMC Geriatrics, (2025), 25, 1, (408), 10.1186/s12877-025-06054-w)	2026	2026-04-29 09:50:18.631391
+138	user_pro	10.1186/s12955-025-02473-w	Translation, cross-cultural adaptation, and psychometric properties of the family impact scale: a COSMIN-based systematic review	2026	2026-04-29 09:50:18.632086
+139	user_pro	10.1007/s44163-026-00911-2	A book recommender system for enhancing reading engagement: a systematic review	2026	2026-04-29 09:50:18.632812
+140	user_pro	10.1038/s41598-026-38695-1	Enhanced pure pursuit with dynamic steering control for autonomous mobile robots and application to safe navigation in chemical plants	2026	2026-04-29 09:50:18.633344
+141	user_pro	10.1186/s12877-026-07147-w	Development of a limited sampling strategy for apixaban area under the curve estimation in elderly patients with non-valvular atrial fibrillation	2026	2026-04-29 09:50:18.634005
+142	user_pro	10.1007/s10856-026-07004-7	Fabrication and characterization of biodegradable Zn-Ni spinel ferrite/ β-TCP composite ceramics exhibiting enhanced cell colonization	2026	2026-04-29 09:50:18.634518
+143	user_pro	10.1038/s41598-026-36581-4	Efficacy of ambulance air purifiers with different photocatalytic oxidation components in the removal of Bacillus subtilis spores	2026	2026-04-29 09:50:18.635153
+144	user_pro	10.1186/s12888-026-07805-8	Association between pet ownership and mental health in university students with borderline personality disorder symptoms	2026	2026-04-29 09:50:18.63588
+145	user_pro	10.1038/s41598-026-37899-9	Morphological diversity of pollen and spores in a human-impacted highland forest–agriculture mosaic in northern Thailand	2026	2026-04-29 09:50:18.636463
+146	user_pro	10.1038/s41598-026-39847-z	Low-power optical tweezers using large-diameter Gaussian and vortex beams for giant bubble trapping and rotation in fluorescent dye media	2026	2026-04-29 09:50:18.637324
+147	user_pro	10.1038/s41598-025-34729-2	Surface-functionalized cigarette butts as efficient adsorbents for Cr(VI) removal and mechanistic insights	2026	2026-04-29 09:50:18.638072
+148	user_pro	10.1186/s12889-025-25811-5	Mathematical modeling of public health policy for international travelers (PHPIT): a case study of the COVID-19 pandemic in Thailand	2026	2026-04-29 09:50:18.638614
+149	user_pro	10.1038/s41598-026-45660-5	Isolation of soil cellulolytic bacteria and their temperature- and pH-dependent decomposition of carboxymethylcellulose-based hydrogels	2026	2026-04-29 09:50:18.639337
+150	user_pro	10.1038/s41598-025-34663-3	Implementation of community-based fall prevention program for Thai older persons: a cluster randomized controlled trial	2026	2026-04-29 09:50:18.640223
+151	user_pro	10.1038/s41598-026-36574-3	Assessing willingness to pay for HLA-B*58:01 genetic testing before allopurinol initiation and its potential impact on future health policy, Thailand	2026	2026-04-29 09:50:18.64097
+152	user_pro	10.1186/s12884-026-08771-5	Second trimester quad test for fetal down syndrome screening as a predictor of spontaneous preterm birth in a developing country: a population-based study	2026	2026-04-29 09:50:18.641499
+153	user_pro	10.1186/s12889-026-26443-z	Self-medication and non-adherence to antibiotic prescription and associated factors among Myanmar migrants in Thailand: a cross-sectional study	2026	2026-04-29 09:50:18.642214
+154	user_pro	10.1038/s41598-025-31774-9	Prevalence of dry eye disease symptoms and impact on quality-of-life among hospital staff during the COVID-19 pandemic	2026	2026-04-29 09:50:18.642954
+155	user_pro	10.1186/s12903-026-07859-w	Impact of moisture condition, shade-taking device, zirconia color, and thickness on color difference values: an in vitro study	2026	2026-04-29 09:50:18.643545
+156	user_pro	10.1038/s41598-026-37555-2	CNS-active medication use and adverse health outcomes among Thai older adults: a population-based retrospective study	2026	2026-04-29 09:50:18.64547
+157	user_pro	10.1186/s12889-026-26777-8	Factors associated with a double burden of malnutrition among preschool-aged ethnic minority children in northern Thailand: a community-based cross-sectional study	2026	2026-04-29 09:50:18.64623
+158	user_pro	10.1038/s41598-025-33717-w	Genomic insights into a novel species, Dyella thailandensis sp. nov., a cellulolytic and xylanolytic bacterium isolated from soil associated with leaf compost	2026	2026-04-29 09:50:18.646975
+159	user_pro	10.1186/s12889-025-25393-2	Effectiveness of community-based eye health promotion program on preventive eye health behaviors among Thai community-dwelling older persons: a cluster randomized controlled trial	2026	2026-04-29 09:50:18.647879
+160	user_pro	10.1038/s41598-025-30971-w	Autism spectrum disorder disrupts brain network connectivity maturation during childhood development	2026	2026-04-29 09:50:18.648419
+161	user_pro	10.1186/s13102-025-01490-y	Exercise synchronized with audible cues preserves motor unit action potential: a randomized control trial study	2026	2026-04-29 09:50:18.649127
+162	user_pro	10.1038/s41598-026-35735-8	A computational intelligence approach for classifying dental caries in X-ray images using integrated fuzzy C-means clustering with feature reduction and a weighted matrix scheme	2026	2026-04-29 09:50:18.649839
+163	user_pro	10.1007/s44187-026-00893-1	Preparation of antioxidative agar hydrolysate from Gracilaria tenuistipitata using H2O2 scission to improve surimi gel stability through multiple freeze–thaw cycles	2026	2026-04-29 09:50:18.650403
+164	user_pro	10.1186/s12902-025-02123-8	Nationwide implementation of a diabetes self-management and network system improves outcomes in type 1 diabetes: real-world evidence from Thailand	2026	2026-04-29 09:50:18.651217
+165	user_pro	10.1186/s12909-025-08287-0	Experiences of using the iCHANGE digital health application in the curriculum for medical students in Thailand	2026	2026-04-29 09:50:18.651869
+166	user_pro	10.1007/s43621-025-02329-9	Green leadership in the food industry influences performance through resilience and environmental dynamics	2026	2026-04-29 09:50:18.653017
+167	user_pro	10.1186/s12889-026-26527-w	Prevalence and associated factors of inappropriate analgesic drug use among community-dwelling older adults with chronic musculoskeletal pain: a cross-sectional study	2026	2026-04-29 09:50:18.655868
+168	user_pro	10.1038/s41598-026-36098-w	Effects of long term canopy change on regulating ecosystem services in a tropical urban park	2026	2026-04-29 09:50:18.670433
+169	user_pro	10.1007/s00403-026-04580-0	The effective dose of botulinum toxin A for acne management: a randomized controlled trial	2026	2026-04-29 09:50:18.671227
+170	user_pro	10.1038/s41598-025-32939-2	Integrated anaerobic membrane bioreactor-yeast biorefinery for co-production of hydrogen, volatile fatty acids, and microbial oil from food waste	2026	2026-04-29 09:50:18.672058
+171	user_pro	10.1186/s12903-026-08053-8	Fracture resistance of posterior teeth restored by lithium silicate-based and hybrid ceramic partial coverage restorations with different preparation designs: a scoping review	2026	2026-04-29 09:50:18.672963
+172	user_pro	10.1038/s41467-026-69323-1	A missense variant in ASCL5 leads to lobodontia	2026	2026-04-29 09:50:18.673827
+173	user_pro	10.5267/j.dsl.2025.10.008	An advanced optimization framework for cross-docking site selection in global supply chains using an enhanced k-means clustering algorithm integrated with geographic information systems	2026	2026-04-29 09:50:18.674655
+174	user_pro	10.1186/s13321-026-01159-9	Data-efficient learning for accurate identification of MAPK1 inhibitors using an active meta-deep learning framework	2026	2026-04-29 09:50:18.675519
+175	user_pro	10.1186/s12877-026-07280-6	Social and community determinants of living arrangements among older adults: the role of social support and mental health promotion	2026	2026-04-29 09:50:18.676219
+176	user_pro	10.1186/s12909-026-08758-y	Exploring cognitive ability and non-cognitive intelligence associated with preclinical academic performance: a study of Thai medical students	2026	2026-04-29 09:50:18.677161
+177	user_pro	10.1007/s44313-026-00130-9	Discordance between immunofixation and free light chain assays in multiple myeloma: a retrospective analysis and evaluation of the heavy/light chain assay for disease monitoring	2026	2026-04-29 09:50:18.677912
+178	user_pro	10.1038/s41598-025-31796-3	Effects of forward shoulder elevation on spinal excursion at three different speeds	2026	2026-04-29 09:50:18.678472
+179	user_pro	10.1186/s12870-026-08175-9	Low-NaCl pretreatment promotes seedling growth of Chinese white radish under water deficit via osmotic and energy regulation	2026	2026-04-29 09:50:18.679178
+180	user_pro	10.1038/s41598-025-34807-5	Serum transthyretin combined with first trimester uterine artery doppler ultrasound for preeclampsia prediction in singleton pregnancies: a prospective observational study	2026	2026-04-29 09:50:18.679893
+181	user_pro	10.1038/s41598-025-30017-1	Discovery of anti-inflammatory compounds from the stem bark of Garcinia latissima through in vitro and in silico approaches	2026	2026-04-29 09:50:18.680437
+182	user_pro	10.1007/s43621-026-03168-y	Understanding creative tourist segments in rural mountain destinations of Northern Thailand using cluster analysis	2026	2026-04-29 09:50:18.681134
+183	user_pro	10.1186/s10020-026-01421-8	Enhanced induction of fetal hemoglobin by the combination of decitabine with RN-1 in β-thalassemia/HbE erythroid progenitor cells	2026	2026-04-29 09:50:18.681865
+184	user_pro	10.1186/s12879-026-12820-x	Declining prevalence of AIDS-defining illness among newly diagnosed people living with HIV in northern Thailand: a 10-year review	2026	2026-04-29 09:50:18.682438
+185	user_pro	10.1186/s12873-026-01507-w	Factors associated with emergency department discharge among patients triaged as resuscitation (CTAS level 1): a retrospective cross-sectional study	2026	2026-04-29 09:50:18.683153
+186	user_pro	10.1186/s12877-026-07078-6	Mental health promotion strategies for minority older adults in highland areas during disease outbreaks: a qualitative exploration	2026	2026-04-29 09:50:18.68388
+187	user_pro	10.1038/s41598-026-41086-1	Green synthesis and characterization of Annona squamosa seed chemical constituents derived silver nanoparticles against Tuta absoluta (Meyrick, 1917) larvae, non-target effect, and confirmed through molecular docking	2026	2026-04-29 09:50:18.684424
+188	user_pro	10.1007/s00436-025-08618-6	Molecular characterization of tick-borne piroplasms in captive megaherbivores in Thailand	2026	2026-04-29 09:50:18.685131
+189	user_pro	10.1038/s41598-025-29207-8	Riboflavin-PLGA nanoparticles enhance the effectiveness of the pyruvate carboxylase inhibitor ZY-444 in targeting lipogenesis in colon and breast cancer	2026	2026-04-29 09:50:18.685907
+190	user_pro	10.1186/s44149-026-00221-1	First detection of porcine circovirus 3 (PCV3) associated with reproductive failure on a Thai pig farm	2026	2026-04-29 09:50:18.686506
+191	user_pro	10.1038/s41598-026-39757-0	Effects of using dextrose administration and outcome in out-of-hospital cardiac arrest patients with hypoglycemia during cardiopulmonary resuscitation	2026	2026-04-29 09:50:18.68723
+192	user_pro	10.1007/s10143-026-04192-2	AI applications in lumbar and lumbosacral pedicle screw placement: a systematic review of limited evidence and future directions	2026	2026-04-29 09:50:18.688054
+193	user_pro	10.1186/s13663-026-00824-w	Variational principles using a non-symmetric non-triangular distance	2026	2026-04-29 09:50:18.688581
+194	user_pro	10.3905/jfds.2025.1.212	Identifying Factor Importance in Empirical Asset Pricing by Interpretable Machine Learning	2026	2026-04-29 09:50:18.689333
+195	user_pro	10.1186/s12873-025-01439-x	Prognostic performance of the temperature- and age-modified shock index for children with sepsis and septic shock: a retrospective cohort study	2026	2026-04-29 09:50:18.690051
+196	user_pro	10.1186/s12917-026-05367-1	Wild boar supply chain systems in Asia: a systematic review	2026	2026-04-29 09:50:18.690593
+197	user_pro	10.1038/s41598-026-46215-4	Dietary behaviors, energy intake, and assessment of school lunch consumption in Thai children with autism	2026	2026-04-29 09:50:18.691326
+198	user_pro	10.1038/s41598-025-30504-5	Enhancing innovative behavior of undergraduate students through an integrated thinking promotion program: a quasi-experiment study	2026	2026-04-29 09:50:18.692095
+199	user_pro	10.1038/s41598-025-29640-9	Low-density granulocytes and neutrophil extracellular traps in dengue, impacts of interferon alpha and cell-free DNA	2026	2026-04-29 09:50:18.69293
+200	user_pro	10.1186/s12917-026-05396-w	Impact of combined unilateral mastectomy and ovariohysterectomy on acute phase response and wound healing in dogs with mammary gland tumors	2026	2026-04-29 09:50:18.693535
+201	user_pro	10.1186/s12884-026-08815-w	Report of the favorable pregnancy outcomes in an FKBP10-related Bruck syndrome case and a narrative review of pregnancy in severe osteogenesis imperfecta	2026	2026-04-29 09:50:18.694319
+202	user_pro	10.1038/s41598-026-39877-7	Cocktail of genetically diverse lytic phages reduces uropathogenic Escherichia coli colonization in mouse urinary tract	2026	2026-04-29 09:50:18.695049
+203	user_pro	10.1038/s41598-026-37465-3	Correction: Systematic review and meta-analysis of virome profiles and quantification of Torque teno virus load in blood of acute febrile illness patients (Scientific Reports, (2025), 15, 1, (45340), 10.1038/s41598-025-29413-4)	2026	2026-04-29 09:50:18.695812
+204	user_pro	10.1186/s12889-025-26159-6	Exploring health literacy and demographic determinants among village health volunteers in the post-COVID-19 era: a web-based cross-sectional study	2026	2026-04-29 09:50:18.69641
+205	user_pro	10.1186/s12889-026-26828-0	Population-focused community-based health literacy model for high-risk people: preventing type 2 diabetes mellitus through participatory action research in rural Thailand	2026	2026-04-29 09:50:18.697156
+206	user_pro	10.1038/s41598-026-40971-z	Optimal locations and capacities of multiple BESSs in a RES-integrated distribution network: a real-world case study	2026	2026-04-29 09:50:18.697961
+207	user_pro	10.1038/s41598-025-33149-6	Characterization of glucose transporter-targeted lipid nanoparticles for enhancing n-3 PUFA utilization in slow-growing Korat chickens	2026	2026-04-29 09:50:18.698554
+208	user_pro	10.1186/s42825-025-00236-3	Extraction techniques, structural features, and functional properties of collagenous derivatives from unconventional animal sources: a review	2026	2026-04-29 09:50:18.699418
+209	user_pro	10.1038/s41598-026-35654-8	Chlorinated bis-4-hydroxycoumarins suppress flavivirus replication by inhibiting dengue virus type 2 translation and replication	2026	2026-04-29 09:50:18.700147
+210	user_pro	10.1016/j.egycc.2025.100231	Optimizing sugarcane and cassava production in Thailand via water-energy food-land-climate nexus	2026	2026-04-29 09:50:18.70092
+211	user_pro	10.1186/s12936-026-05841-z	Contrasting evolutionary trajectories of pyrimethamine resistance in human and zoonotic malaria parasites	2026	2026-04-29 09:50:18.701441
+212	user_pro	10.1007/s43621-025-02370-8	Integrating biodiversity into the Water Energy Food Land Climate Nexus for holistic sustainability assessment of agriculture	2026	2026-04-29 09:50:18.702156
+213	user_pro	10.1186/s12245-026-01128-x	Reducing cognitive load in dispatcher-assisted CPR: a simulation-based educational study among non-medical university students	2026	2026-04-29 09:50:18.702919
+214	user_pro	10.1038/s41598-026-36278-8	Overcoming Candida albicans biofilm drug resistance via azole-sophorolipid synergy	2026	2026-04-29 09:50:18.70348
+215	user_pro	10.1186/s41182-026-00931-9	Therapeutic challenges in relapsing cutaneous and visceral leishmaniasis caused by Leishmania (Mundinia) martiniquensis in patients with advanced HIV disease from Southern Thailand	2026	2026-04-29 09:50:18.704165
+216	user_pro	10.1057/s41599-026-06715-0	A cross-sectional study of factors influencing innovative behavior among basic education students	2026	2026-04-29 09:50:18.704837
+217	user_pro	10.1186/s12870-025-07993-7	Unraveling the role of Cullin3 of E3 ubiquitin ligase in salt stress tolerance via proteomics	2026	2026-04-29 09:50:18.705341
+218	user_pro	10.1007/s00276-025-03794-7	An anatomical study of anterior spinal artery patterns in the Thai population	2026	2026-04-29 09:50:18.706068
+219	user_pro	10.1186/s12903-025-07300-8	Can artificial intelligence optimize treatment planning and outcome prediction in fixed tooth- and implant-supported prosthodontics? A scoping review	2026	2026-04-29 09:50:18.706625
+220	user_pro	10.1038/s41598-026-46753-x	Retraction Note: An intelligent learning system based on electronic health records for unbiased stroke prediction (Scientific Reports, (2024), 14, 1, (23052), 10.1038/s41598-024-73570-x)	2026	2026-04-29 09:50:18.707443
+221	user_pro	10.1186/s40813-026-00491-8	Dietary supplementation with microencapsulated organic acids and essential oils improves sow productivity and nursery pig performance under commercial field conditions	2026	2026-04-29 09:50:18.708235
+222	user_pro	10.1186/s13002-025-00841-w	Exploring local vegetables cultivated in home gardens of Pa Tio District, Yasothon Province, Thailand: ethnobotanical knowledge, nutritional value, and horticultural potential	2026	2026-04-29 09:50:18.709019
+223	user_pro	10.1007/s00701-026-06801-x	Trigeminal nerve transposition by sling-pulling technique in combination with macrovascular transposition for giant basilar artery–induced trigeminal neuralgia via a combined transpetrosal approach	2026	2026-04-29 09:50:18.709562
+224	user_pro	10.1186/s40795-026-01290-8	“Health literacy, health behavior, and demographic determinants of BMI status among pre-older adults: a cross-sectional study”	2026	2026-04-29 09:50:18.710292
+225	user_pro	10.1057/s41599-026-06718-x	Divergent Drivers of Crime in Asia: A Comparative Panel Analysis of Institutional and Socioeconomic Factors	2026	2026-04-29 09:50:18.710974
+226	user_pro	10.1007/s10143-025-03954-8	Accuracy, outcome and complication of Free-hand VP shunt catheter placement	2026	2026-04-29 09:50:18.711554
+227	user_pro	10.1186/s12904-026-02065-5	Patient, family, and healthcare provider experiences in advance care planning: a qualitative study	2026	2026-04-29 09:50:18.712304
+228	user_pro	10.1186/s40468-026-00438-4	Developing and validating the WIL-EngDev scale: a measurement tool for assessing English language development in work-integrated learning contexts	2026	2026-04-29 09:50:18.713092
+229	user_pro	10.1186/s12645-026-00362-5	Iron–quercetin complex reprograms tumor-associated macrophages toward M1 phenotype and enables MRI tracking in ex vivo tumor-mimicking spheroids	2026	2026-04-29 09:50:18.713839
+230	user_pro	10.1186/s12905-026-04287-4	Efficacy and acceptability of dienogest among patients with endometriosis in Thailand	2026	2026-04-29 09:50:18.714826
+231	user_pro	10.1186/s12872-026-05526-0	Safety of leadless versus transvenous pacemakers in patients with low body surface area: a matched-pair analysis	2026	2026-04-29 09:50:18.715559
+232	user_pro	10.1186/s12889-026-26666-0	Trend and social determinants of non-facility births in Northwestern Nigeria: pooled analysis of demographic and health survey 2003–2018	2026	2026-04-29 09:50:18.716219
+233	user_pro	10.1186/s12877-026-07140-3	Food access determinants and food insecurity severity in the older population: evidence from a nationally representative, cross-sectional survey in Thailand	2026	2026-04-29 09:50:18.716897
+234	user_pro	10.1038/s41598-026-39138-7	Hydrothermal synthesis of ZnO nanoparticles from recycled ZnO obtained from electric Arc furnace dust: morphology control and applications	2026	2026-04-29 09:50:18.717422
+235	user_pro	10.1007/s41060-025-01005-5	Aqnet adaptive mesh attention framework for spatiotemporal air quality prediction in diverse urban environments	2026	2026-04-29 09:50:18.718147
+236	user_pro	10.1186/s12903-026-07824-7	Astaxanthin enhances migration, Type I and Type III collagen production, and osteogenic differentiation in periodontal ligament fibroblasts under hyperglycemic conditions	2026	2026-04-29 09:50:18.718885
+237	user_pro	10.1038/s41598-025-33373-0	Evaluating dental student competency in forensic rugoscopy for human identification	2026	2026-04-29 09:50:18.719442
+238	user_pro	10.1038/s41598-025-33150-z	Impact of the amount of parathyroid autotransplantation in total parathyroidectomy for secondary hyperparathyroidism: a prospective randomized trial	2026	2026-04-29 09:50:18.720161
+239	user_pro	10.1186/s12995-026-00496-7	Web application development using multiple regression analysis to predict silicosis risk among stone carvers in Nakhon Ratchasima, Thailand	2026	2026-04-29 09:50:18.720992
+240	user_pro	10.1186/s13660-025-03411-6	Some improvements on the stability results for additive functional inequalities in Banach spaces	2026	2026-04-29 09:50:18.721569
+241	user_pro	10.1186/s12877-025-06634-w	Does living with children or financial adequacy mitigate the impact of IADL limitations on older adults’ well-being? Findings from the Longitudinal Indonesian Family Life Survey	2026	2026-04-29 09:50:18.722348
+242	user_pro	10.1007/s00701-025-06761-8	Minimally invasive single-stage hybrid strategy for ruptured dissecting fusiform proximal posterior inferior cerebellar artery aneurysm: how I do it	2026	2026-04-29 09:50:18.723154
+243	user_pro	10.1186/s42836-025-00365-4	Anatomical relationship between the intertrochanteric line and femoral neck osteotomy level in direct anterior approach total hip arthroplasty: a 3D morphometric and cadaveric validation study	2026	2026-04-29 09:50:18.725765
+244	user_pro	10.1186/s12992-025-01174-9	Commercial determinants of health: case study of ultra-processed food companies in Thailand	2026	2026-04-29 09:50:18.726562
+245	user_pro	10.1186/s12877-025-06864-y	Ageing in place readiness in Thailand: urban and rural comparison	2026	2026-04-29 09:50:18.72731
+246	user_pro	10.1186/s12871-026-03635-z	Using ultrasonographic skin-to-vocal-cord distance measurements to predict difficult intubation in obese Thai patients: a prospective observational study	2026	2026-04-29 09:50:18.728073
+247	user_pro	10.1186/s12873-025-01467-7	Association between emergency department bed occupancy rate and in-hospital cardiac arrest in the emergency department: a retrospective study	2026	2026-04-29 09:50:18.729121
+248	user_pro	10.1186/s12889-026-26225-7	Factors shaping health-seeking behavior among Myanmar migrant workers in Chiang Rai, Thailand	2026	2026-04-29 09:50:18.730979
+249	user_pro	10.1016/j.ghrp.2026.01.003	Performance of the Emergency Severity Index (ESI) in predicting mortality and resource utilization at a tertiary care hospital in Thailand	2026	2026-04-29 09:50:18.732795
+250	user_pro	10.1186/s13002-026-00856-x	Ethnomedicinal plants and traditional healing practices of indigenous communities in Dan Sub-district, Kap Choeng District, Surin Province, Thailand	2026	2026-04-29 09:50:18.733554
+251	user_pro	10.1186/s12870-025-07824-9	Postharvest detection of anthracnose (Colletotrichum asianum) on mango fruit (Mangifera indica L. cv Namdokmai Sithong) using near-infrared response	2026	2026-04-29 09:50:18.734518
+252	user_pro	10.1007/s43621-026-02810-z	Exploring relationships between sustainability vision components and their organizational impact	2026	2026-04-29 09:50:18.73527
+253	user_pro	10.1186/s13104-025-07617-1	Loss of measles, mumps, and rubella immunity in pediatric cancer survivors following chemotherapy	2026	2026-04-29 09:50:18.735941
+254	user_pro	10.1186/s13071-025-07167-2	Molecular detection of tick-borne pathogens in cattle ticks from the Lao People’s Democratic Republic	2026	2026-04-29 09:50:18.736453
+255	user_pro	10.1007/s43621-026-02782-0	Exploring sufficiency economy concept as a sustainability strategy	2026	2026-04-29 09:50:18.737323
+256	user_pro	10.1007/s10006-026-01509-9	Platelet-rich fibrin combined with demineralized tooth matrix enhances periodontal regeneration following impacted third molar surgery: a randomized controlled clinical trial	2026	2026-04-29 09:50:18.739029
+257	user_pro	10.18823/asiatefl.2025.22.4.5.699	Online EFL Instruction with an AI-Powered Interactive Response System: A Case of Pear Deck in a Writing Course	2026	2026-04-29 09:50:18.739725
+258	user_pro	10.1007/s43621-026-02724-w	Factors influencing sustainability performance in public-private partnerships for transportation in China	2026	2026-04-29 09:50:18.740496
+259	user_pro	10.1016/j.sleepx.2026.100180	Integrative therapies for chronic insomnia: A randomized controlled trial of a traditional Thai herbal remedy and Cannabis sativa oil	2026	2026-04-29 09:50:18.741254
+260	user_pro	10.1007/s43503-026-00088-8	Large language model-based multi-agent systems for automated foundation design: router-driven task classification and expert selection framework	2026	2026-04-29 09:50:18.742048
+261	user_pro	10.1007/s12155-025-10954-5	Fungal Isolates Enriched Under Anaerobic Conditions from Buffalo Rumen Fluid for Lignocellulosic Rice Straw Conversion and Biogas Production Potential	2026	2026-04-29 09:50:18.74284
+262	user_pro	10.1016/j.ghrp.2026.01.004	Mental health and legal statuses along the path to citizenship: A qualitative study of minority ethnic urban dwellers in Chiang Mai, Thailand	2026	2026-04-29 09:50:18.744063
+263	user_pro	10.1057/s41599-025-06400-8	Tragic love: AI’s emotionless system and the absence of human emotions	2026	2026-04-29 09:50:18.744817
+264	user_pro	10.1186/s12879-026-12685-0	Low necessity, high overuse: revisiting empirical vancomycin practices for children in low MRSA prevalence settings	2026	2026-04-29 09:50:18.74536
+265	user_pro	10.1186/s13037-026-00479-x	Extensive perinephric hematoma following excessive irrigation pressure during flexible ureteroscopy: case report of a preventable complication	2026	2026-04-29 09:50:18.746073
+266	user_pro	10.1007/s43684-026-00128-1	T-3MS fusion: gradient-aware transformer-guided middle-fusion for real-time 3D object detection on affordable sensor suite	2026	2026-04-29 09:50:18.746861
+267	user_pro	10.1038/s41598-025-34602-2	The association of prehospital advanced airway management time and outcome in out-of hospital cardiac arrest patients	2026	2026-04-29 09:50:18.74738
+268	user_pro	10.1186/s12893-026-03644-2	Operative outcomes of interval cholecystectomy after gallbladder drainage for acute cholecystitis: a systematic review and meta-analysis comparing endoscopic and percutaneous approaches	2026	2026-04-29 09:50:18.748122
+269	user_pro	10.1007/s44187-026-00872-6	Physicochemical properties, proximate composition and sensory characteristics of salad dressing made with banana peel pulp (Musa acuminata)	2026	2026-04-29 09:50:18.748904
+270	user_pro	10.1038/s41598-026-37182-x	Optimizing immersion time and frequency in a twin-bottle temporary immersion system for mass production of Zingiber officinale Roscoe	2026	2026-04-29 09:50:18.749449
+271	user_pro	10.1057/s41599-025-06420-4	The transformation from human surplus value to AI algorithmic surplus value: logic of the critique of capital in the era of AI	2026	2026-04-29 09:50:18.750217
+272	user_pro	10.1186/s13071-025-07200-4	Determination of dengue high-risk areas in the Philippines: a kernel density estimation, inverse distance weighting, and ecological niche modeling	2026	2026-04-29 09:50:18.751078
+273	user_pro	10.1007/s00223-026-01483-0	Disproportionate Decline in Trabecular Bone Score Compared to Bone Mineral Density in Southeast Asian Patients with Thalassemia: A Matched Control Study	2026	2026-04-29 09:50:18.751879
+274	user_pro	10.1007/s43621-026-02786-w	Cultural and demographic influences on household waste management in ethnic minority communities of Thailand	2026	2026-04-29 09:50:18.752913
+275	user_pro	10.1186/s12917-025-05260-3	Potential of citric and yeast waste fermentation products supplemented with fiber-degrading enzymes as alternatives to soybean meal in ruminant nutrition	2026	2026-04-29 09:50:18.753781
+276	user_pro	10.1007/s00701-026-06808-4	Surgery of the Anterior Infratemporal Fossa (AITF) and the Pterygopalatine Fossa (PPF) lesions: critical assessment of operative exposure, loss of functioning tissue and morbidity between Extradural Subtemporal Infratemporal Approach (ESITA) and Endonasal Endoscopic Transmaxillary Transpterygoid Approach (EEMP)	2026	2026-04-29 09:50:18.755151
+277	user_pro	10.1186/s12985-026-03117-1	Emergence of dengue at high altitude: characterization of the 2024 outbreak in Cochabamba, Bolivia	2026	2026-04-29 09:50:18.757439
+278	user_pro	10.1038/s41598-025-30678-y	Artificial intelligence-based fault classification on photovoltaic plants using a low-cost open-source IoT system	2026	2026-04-29 09:50:18.758229
+279	user_pro	10.1007/s44463-025-00028-7	In-pack combination of ultrasonication and sous-vide accelerates goat meat tenderization: gene expression and biochemical changes during early post-mortem storage	2026	2026-04-29 09:50:18.758924
+280	user_pro	10.1186/s43014-025-00360-x	Egg white rice-shaped analogue enhances satiety hormones and glycemic control in healthy men: a randomized unblinded crossover trial	2026	2026-04-29 09:50:18.759608
+281	user_pro	10.1007/s43939-025-00524-z	Recent advances in applications of nanocomposites: A brief overview	2026	2026-04-29 09:50:18.760425
+282	user_pro	10.1007/s43621-025-02386-0	A strategic national energy consumption management model for long-term sustainability in achieving net-zero greenhouse gas emissions in the industrial sector	2026	2026-04-29 09:50:18.761421
+283	user_pro	10.1007/s43621-026-02621-2	Correction: Exploring toxic leadership in organizations through a comprehensive bibliometric analysis (Discover Sustainability, (2025), 7, 1, (6), 10.1007/s43621-025-02360-w)	2026	2026-04-29 09:50:18.762307
+284	user_pro	10.1007/s43621-025-02360-w	Exploring toxic leadership in organizations through a comprehensive bibliometric analysis	2026	2026-04-29 09:50:18.763056
+285	user_pro	10.1038/s41598-026-35398-5	Effects of microplastic on submerged nanofiltration for advanced drinking water treatment	2026	2026-04-29 09:50:18.764113
+286	user_pro	10.1038/s41598-026-37968-z	Spatio-temporal trends in COVID-19 morbidity and mortality due to elderly: a global perspective	2026	2026-04-29 09:50:18.764992
+287	user_pro	10.1038/s41598-025-31332-3	Accurate identification of broadly neutralizing antibodies against dengue virus based on deep stacking strategy with multi-perspective features	2026	2026-04-29 09:50:18.767115
+288	user_pro	10.1007/s44282-026-00341-6	Shared or divided perceptions of female commuters’ harassment in Chattogram city’s public transport system	2026	2026-04-29 09:50:18.768724
+289	user_pro	10.1186/s12879-026-12795-9	Rifampicin-resistant tuberculosis in Nangarhar, Afghanistan: prevalence and risk factors	2026	2026-04-29 09:50:18.770421
+290	user_pro	10.1007/s10571-026-01686-x	A Subset of Circulating Hemocytes Expresses Genes Indicating Neural Precursor Identity	2026	2026-04-29 09:50:18.771148
+291	user_pro	10.1038/s41598-026-43950-6	Current-use and legacy pesticides in canal waters of Chiang Mai, Thailand, during longan flowering and fruit set: occurrence and ecological and human health risk assessment	2026	2026-04-29 09:50:18.771921
+292	user_pro	10.1038/s41598-026-36729-2	Correction: Oroxylum indicum ameliorates D-galactose-induced aging related memory impairments via enhancing rat hippocampal neurogenesis (Scientific Reports, (2025), 15, 1, (43004), 10.1038/s41598-025-27042-5)	2026	2026-04-29 09:50:18.772496
+293	user_pro	10.1186/s41043-026-01244-7	A mixed-effects multilevel Poisson regression analysis of diarrhea prevalence among under-five children in Indonesia	2026	2026-04-29 09:50:18.774421
+294	user_pro	10.1186/s12936-025-05743-6	Interactions between Plasmodium falciparum–infected red blood cells and their extracellular vesicles with megakaryocytes: implications for platelet-like particle formation	2026	2026-04-29 09:50:18.77559
+295	user_pro	10.1038/s42005-026-02528-4	Connecting phases of matter to the flatness of the loss landscape in analog variational quantum algorithms	2026	2026-04-29 09:50:18.776406
+296	user_pro	10.1186/s13663-025-00817-1	An approach to fractal construction in m-metric spaces via F-contractions	2026	2026-04-29 09:50:18.777864
+297	user_pro	10.1186/s12904-025-01951-8	Patterns of engagement in advance care planning among older people living with cancer: a cross-sectional survey	2026	2026-04-29 09:50:18.779214
+298	user_pro	10.1186/s12936-026-05808-0	Re-emergence of malaria in Karen State, Myanmar: has the battle of Burma been lost?	2026	2026-04-29 09:50:18.780432
+299	user_pro	10.1007/s44187-026-00922-z	Application of gamma irradiation in combination with moderate dehydration to extend the shelf life of fresh rice noodles at ambient temperature	2026	2026-04-29 09:50:18.781454
+300	user_pro	10.1186/s40712-026-00416-x	Modification of optical and electrical properties in sputtered CsI films by dopant incorporation	2026	2026-04-29 09:50:18.782213
+301	user_pro	10.1186/s13717-025-00665-2	Local topographic and biotic neighborhood factors influence tree survival in a tropical dry forest, western Thailand	2026	2026-04-29 09:50:18.78395
+302	user_pro	10.1038/s41598-025-33032-4	Modulation of sepsis by Lacticaseibacillus rhamnosus and the potential role of short-chain fatty acid levels in feces and blood	2026	2026-04-29 09:50:18.784811
+303	user_pro	10.1186/s12935-026-04209-2	miR-145-5p/CAMSAP2 axis modulates cisplatin sensitivity in non-small cell lung cancer	2026	2026-04-29 09:50:18.785656
+304	user_pro	10.1038/s41598-026-35916-5	Bacterial growth in poly(vinyl alcohol) hydrogel with nutrients and indicator	2026	2026-04-29 09:50:18.786452
+305	user_pro	10.1186/s12936-025-05756-1	Complete gene sequence diversity, amplification, and natural selection of the Plasmodium vivax Duffy binding protein locus	2026	2026-04-29 09:50:18.787323
+306	user_pro	10.1186/s41182-026-00929-3	Molecular evidence of a high prevalence of Opisthorchis viverrini infection in an endemic community in Sakon Nakhon Province, northeastern Thailand	2026	2026-04-29 09:50:18.788109
+307	user_pro	10.1038/s41598-025-33405-9	Factors influencing complete abstinence during Thailand’s temporary alcohol abstinence campaign	2026	2026-04-29 09:50:18.788898
+308	user_pro	10.1186/s12873-025-01445-z	Inter-rater agreement of respiratory distress observation scale measurement between physicians and nurses in the emergency department	2026	2026-04-29 09:50:18.789918
+309	user_pro	10.1186/s12891-026-09488-4	A predictive model for classifying low back pain status based on lumbopelvic kinematics measured using inertial measurement units: a cross-sectional study	2026	2026-04-29 09:50:18.790983
+310	user_pro	10.1186/s13031-026-00750-z	Mental health among youth in a conflict area: a cross-sectional study of the effects of parental absence, social media, family support and religious practice on psychiatric symptoms in Thailand’s southernmost provinces	2026	2026-04-29 09:50:18.791722
+311	user_pro	10.1007/s00276-026-03829-7	Bilateral subclavius posticus innervated by the lateral pectoral nerve: a cadaveric and ultrasound case report	2026	2026-04-29 09:50:18.792451
+312	user_pro	10.1007/s10822-025-00727-9	Identification of antidiabetic leads using in-silico screening, molecular dynamics simulation, and biological evaluation using cell viability, anti-adipogenesis, glucose uptake, and peroxisome proliferator activated receptor-γ in-vitro assay	2026	2026-04-29 09:50:18.793215
+313	user_pro	10.1007/s13659-026-00603-5	Calabanones A‒H, chromanone derivatives from the stem bark of Calophyllum calaba and their cytotoxic activities against cancer cells	2026	2026-04-29 09:50:18.794311
+314	user_pro	10.1007/s43621-025-02388-y	Creating sustainable water management in durian cultivation in Thailand with hybrid solar irrigation	2026	2026-04-29 09:50:18.795497
+315	user_pro	10.1186/s12917-026-05288-z	Reproductive efficiency and longevity of gilts and sows in group housing and free-farrowing systems versus traditional crate systems in tropical environments	2026	2026-04-29 09:50:18.796424
+316	user_pro	10.1007/s00383-026-06355-0	Image defined risk factor(s) and outcomes for abdominal neuroblastoma: a surgical perspective from a Thailand National Cancer Centre	2026	2026-04-29 09:50:18.798426
+317	user_pro	10.1186/s12889-026-26570-7	Nationwide trends in pediatric obesity in Thailand, 2015–2023: prevalence, morbidity, mortality, and COVID-19–related disparities	2026	2026-04-29 09:50:18.80014
+318	user_pro	10.1038/s41598-026-37470-6	Hybrid quantum–chaotic key expansion enhances QKD rates using the Lorenz system	2026	2026-04-29 09:50:18.800988
+319	user_pro	10.1186/s40359-026-04166-5	Factors influencing mental health among university teachers: a study based on the Diathesis-Stress Model and Response Style Theory	2026	2026-04-29 09:50:18.802225
+320	user_pro	10.1186/s40643-025-00992-4	Application of image analysis combined with regression models to estimate the reduction of Escherichia coli and Salmonella spp. on vegetable surfaces after washing	2026	2026-04-29 09:50:18.802924
+321	user_pro	10.1007/s10791-026-10016-0	Photovoltaic array fault diagnosis and dynamic reconfiguration based on improved YOLOv7 and QAGO	2026	2026-04-29 09:50:18.804215
+322	user_pro	10.1007/s10577-026-09797-3	Mixed modes of satellite DNA and transposable element evolution, which shape the repetitive landscape of air-breathing catfishes (Clarias)	2026	2026-04-29 09:50:18.80495
+323	user_pro	10.1007/s44202-026-00596-9	The boundary conditions of corporate values on the link between leadership behaviour and employee performance through psychological well-being	2026	2026-04-29 09:50:18.806233
+324	user_pro	10.1186/s12917-025-05219-4	Evidence of feline chaphamaparvovirus in dogs: molecular detection, genetic recombination, and tissue localization	2026	2026-04-29 09:50:18.806998
+325	user_pro	10.1038/s41598-025-33388-7	Longitudinal analysis of neutralizing antibodies against SARS-CoV-1 and different SARS-CoV-2 strains in breakthrough and unvaccinated COVID-19 patients in Thailand (2021-2022)	2026	2026-04-29 09:50:18.807533
+326	user_pro	10.1186/s12889-026-26691-z	Effects of health insurance on economic burden and health service utilization among people with noncommunicable diseases in low- and middle-income countries: a systematic review	2026	2026-04-29 09:50:18.808773
+327	user_pro	10.1038/s41598-026-41530-2	Multiplex real-time PCR with high-resolution melting analysis for rapid identification of carbapenem and colistin resistance genes in clinical Enterobacterales isolates	2026	2026-04-29 09:50:18.810834
+328	user_pro	10.1007/s44202-026-00611-z	Impact of systemic family dynamics on cyberbullying among college students in Southwest China	2026	2026-04-29 09:50:18.81162
+329	user_pro	10.1038/s41598-026-39977-4	Skipjack tuna bone derived biocalcium ameliorates C2C12 myotube atrophy through microRNA29b regulation	2026	2026-04-29 09:50:18.812389
+330	user_pro	10.1186/s13663-025-00814-4	A golden ratio proximal method for monotone variational inequality problems	2026	2026-04-29 09:50:18.813149
+331	user_pro	10.1038/s41598-026-40341-9	Validation and fine mapping of qVmunBr6.2 locus reveal a gene encoding hevamine-A, a defense protein with chitinase activity, is associated with bruchid (Callosobruchus maculatus) resistance in black gram (Vigna mungo)	2026	2026-04-29 09:50:18.813989
+332	user_pro	10.1007/s11557-025-02114-y	Polyphasic characterization of Biscogniauxia papillata sp. nov. (Graphostromataceae) and isolation of the cytotoxic cyclic pentapeptide cyclobiscognioxin A	2026	2026-04-29 09:50:18.814644
+333	user_pro	10.1186/s12910-026-01378-7	Missing assent: a global systematic review of ethical practices in HIV research with men who have sex with men (MSM) under 18	2026	2026-04-29 09:50:18.818121
+334	user_pro	10.1016/j.jdsr.2025.11.001	Diagnostic accuracy and feasibility of artificial intelligence-driven smartphone imaging for dental caries detection: A systematic review	2026	2026-04-29 09:50:18.82159
+335	user_pro	10.1186/s12935-025-04104-2	PRKCSH deficiency promotes an anti-tumor immune microenvironment via UPR activation and M1 macrophage polarization	2026	2026-04-29 09:50:18.822427
+336	user_pro	10.1186/s12964-025-02558-5	Copper ionophore elicits calpain-dependent paraptosis coincident with proteotoxic stress	2026	2026-04-29 09:50:18.823161
+337	user_pro	10.1007/s11557-026-02126-2	Pseudosparassis yunnanensis, gen. et sp. nov. (Sclerotiniaceae, Helotiales, Ascomycota) from Yunnan Province, Southwestern China	2026	2026-04-29 09:50:18.824025
+338	user_pro	10.1186/s10194-026-02295-1	Diagnosis challenges and accessibility barriers to migraine management in Southeast Asia: results from the South-East Asia Local breAch on MigraiNe Treatment (SEALANT) study	2026	2026-04-29 09:50:18.824676
+339	user_pro	10.1186/s10194-026-02317-y	Correction: Diagnosis challenges and accessibility barriers to migraine management in Southeast Asia: results from the South-East Asia Local breAch on MigraiNe Treatment (SEALANT) study (The Journal of Headache and Pain, (2026), 27, 1, (47), 10.1186/s10194-026-02295-1)	2026	2026-04-29 09:50:18.825432
+340	user_pro	10.1186/s12879-025-12372-6	Prevalence and genotyping of Giardia duodenalis infections in humans in Thailand: a systematic review and meta-analysis	2026	2026-04-29 09:50:18.82623
+341	user_pro	10.1007/s44187-025-00750-7	Physicochemical and rheological properties of tangerine peel pectin extracted using organic acids with or without ultrasonication assistance	2026	2026-04-29 09:50:18.827021
+342	user_pro	10.1186/s40854-025-00877-7	Black–scholes equation in quantitative finance with variable parameters: a path to a generalized schrodinger equation	2026	2026-04-29 09:50:18.827829
+343	user_pro	10.1007/s42102-026-00142-0	Nonlocal Fractal Diffusion-Advection Models with Variable Coefficients and Nonlocal Time Delay: Existence of Solutions, Lyapunov Function, Hopf Bifurcation, and Stability	2026	2026-04-29 09:50:18.832211
+344	user_pro	10.22105/jfea.2025.530194.1960	From Foundations to Frontiers: Half a Century of Fuzzy Logic Research in Iran	2026	2026-04-29 09:50:18.832908
+345	user_pro	10.1007/s43621-025-02551-5	Ethical implications of environmental, social, and governance (ESG) investments for intergenerational resilience in natural disaster mitigation	2026	2026-04-29 09:50:18.835432
+346	user_pro	10.1007/s44163-025-00797-6	Generative AI Shanshui animation enhancement using Perlin noise and diffusion models	2026	2026-04-29 09:50:18.837415
+347	user_pro	10.1007/s10791-026-10019-x	A bi-objective fuzzy mathematical model for new production–distribution-pricing problem using credibility and variance measures	2026	2026-04-29 09:50:18.838807
+348	user_pro	10.5267/j.dsl.2025.9.001	The impact of attitude toward artificial intelligence on teaching satisfaction: The mediating role of teachers’ self-efficacy of teaching innovation skills among chinese faculty in Thai universities	2026	2026-04-29 09:50:18.83958
+349	user_pro	10.22034/IJHCUM.2026.01.01	Utilizing social media to promote responsible tourism: Applying the technology acceptance model and source credibility theory	2026	2026-04-29 09:50:18.840314
+350	user_pro	10.1186/s12879-025-12251-0	Drug resistance patterns among tuberculosis patients at a tuberculosis designated hospital in Yunnan: a retrospective analysis of the 2013–2022 period	2026	2026-04-29 09:50:18.841047
+351	user_pro	10.1038/s41598-026-37648-y	The impact of AI anxiety on career decisions of college students	2026	2026-04-29 09:50:18.841595
+352	user_pro	10.1186/s12889-026-26211-z	Factors associated with musculoskeletal disorders among Thai rice farmers in Roi-Et	2026	2026-04-29 09:50:18.842336
+353	user_pro	10.1007/s10725-026-01446-3	Oleosin-coated nanocarriers enhance mycorrhizal-mediated pollinator forage and sunflower productivity under neonicotinoid stress	2026	2026-04-29 09:50:18.843038
+354	user_pro	10.1038/s41598-025-33176-3	Social isolation and social media addiction: the serial mediation roles of social anxiety and FoMO among Chinese university students	2026	2026-04-29 09:50:18.843567
+355	user_pro	10.1186/s12936-026-05812-4	Context-specific drivers of non-regular long-lasting insecticidal net use in the Greater Mekong Subregion	2026	2026-04-29 09:50:18.844309
+356	user_pro	10.1038/s41598-026-37544-5	Metagenomic analysis revealed the presence of novel Actinomycetota “Candidatus Solincola uaceae” sp. nov., obtained from a hot spring	2026	2026-04-29 09:50:18.844994
+357	user_pro	10.1038/s41598-025-30575-4	Developing and validating prediction models for low back pain and neck pain in office workers: a cross-sectional study	2026	2026-04-29 09:50:18.845554
+358	user_pro	10.1057/s41599-025-06298-2	Beyond environmental benefits: understanding the social and economic factors in electric vehicle adoption	2026	2026-04-29 09:50:18.846281
+359	user_pro	10.1186/s12963-026-00458-5	Spatiotemporal epidemiology and associated risk factors of tuberculosis incidence and mortality in Indonesia 2017–2022: a nationwide space-time hierarchical analysis	2026	2026-04-29 09:50:18.846988
+360	user_pro	10.1007/s11916-025-01454-4	Neural Modification To Treat Chronic Tendinopathy: Emerging Evidence and Opportunities for Pain Practitioners - A Systematic Review	2026	2026-04-29 09:50:18.847513
+361	user_pro	10.1186/s12887-025-06450-6	Impacts of mobile health interventions on infant and young child feeding in LMICs: systematic review and meta-analysis	2026	2026-04-29 09:50:18.848238
+362	user_pro	10.1038/s41522-026-00942-8	Colouring dysbiosis: FetB-dependent Mn-PPIX produced by Porphyromonas gingivalis shapes the oral microbiota	2026	2026-04-29 09:50:18.848949
+363	user_pro	10.1186/s40249-026-01413-0	Evaluating the diagnostic accuracy of clinical judgement and rapid tests for leptospirosis in the Philippines: implications for public health management	2026	2026-04-29 09:50:18.849563
+364	user_pro	10.1186/s12936-025-05689-9	Outdoor biting by malaria vectors: what are the options for intervention?	2026	2026-04-29 09:50:18.850268
+365	user_pro	10.1186/s40249-026-01418-9	Spatiotemporal epidemiology, geographic hotspots, and risk factor associations of drug-resistant tuberculosis incidence in Indonesia: a Bayesian hierarchical modelling approach	2026	2026-04-29 09:50:18.850979
+366	user_pro	10.1186/s40359-026-04091-7	The validity and reliability of the Patient Health Questionnaire - Adolescent version (PHQ – A) in Vietnam	2026	2026-04-29 09:50:18.851513
+367	user_pro	10.1057/s41599-026-06564-x	How do multiple Chinese actors conduct environmental communication on World Environment Day (2013–2022): a mixed-methods study	2026	2026-04-29 09:50:18.852239
+368	user_pro	10.1186/s12991-025-00619-0	Structural equation modeling of associated factors and regional variations in major depressive disorders and generalized anxiety disorders among reproductive-age Bangladeshi women: a nationally representative study	2026	2026-04-29 09:50:18.852924
+369	user_pro	10.1007/s44192-025-00336-w	A scoping review of school-based psychological interventions for adolescent mental health in secondary education: addressing anxiety, depression, and well-being	2026	2026-04-29 09:50:18.853427
+370	user_pro	10.1007/s11906-026-01369-4	Does Resistance Training Provide Benefits that Are Comparable to Aerobic Exercise in Hypertension?	2026	2026-04-29 09:50:18.85411
+371	user_pro	10.1016/j.gecadv.2026.100031	Energy efficiency and renewable energy solutions: Nano-additized algal biodiesel for cleaner marine engine applications	2026	2026-04-29 09:50:18.854833
+372	user_pro	10.1186/s12889-026-26431-3	Prevalence and associated factors of normal-weight central obesity among community-dwelling adults 18 years and older in Mongolia	2026	2026-04-29 09:50:18.855324
+373	user_pro	10.1007/s44470-025-00023-1	The association between obstructive sleep apnea risk and cardiovascular disease risk in midlife Thai women in the U.S	2026	2026-04-29 09:50:18.856211
+374	user_pro	10.1186/s40635-026-00861-0	Effect of lateral positioning on ventilation in patients with blunt thoracic injury during pressure support ventilation: the VICTORY study	2026	2026-04-29 09:50:18.856911
+375	user_pro	10.1038/s41598-026-39302-z	An integrated cubic Pythagorean fuzzy MAIRCA model with novel variation coefficient similarity measure for food safety risk assessment	2026	2026-04-29 09:50:18.857435
+376	user_pro	10.55003/cast.2025.265762	Radon Contamination in Various Water Sources and Indoor Air in Buildings in the Coastal Region of Surat Thani Province, Southern Thailand	2026	2026-04-29 09:50:18.858157
+377	user_pro	10.55003/cast.2025.265396	Flesh Quality of Nile Tilapia (Oreochromis niloticus) Cultured in Biofloc System with Different Dietary Protein Levels	2026	2026-04-29 09:50:18.858901
+378	user_pro	10.55003/cast.2025.265899	Effects of Air, Vacuum, and Nitrogen Annealing on Structure, Bone Regeneration, and Antimicrobial Activity of Zinc-Doped Ca-P-O Microfibers	2026	2026-04-29 09:50:18.859402
+379	user_pro	10.55003/cast.2025.264421	Evaluating Black Soldier Fly (Hermetia illucens (L.) Residues from Various Organic Feedstocks as Organic Fertilizers for Sweet Corn Cultivation in Thailand	2026	2026-04-29 09:50:18.860034
+380	user_pro	10.55003/cast.2025.265878	Investigating Transit Timing Variations of a Hot Jupiter HAT-P-43 b	2026	2026-04-29 09:50:18.860506
+381	user_pro	10.1016/j.fuel.2026.139244	Single-Site Cr(III) catalyst on Polyethylenimine-Modified dendritic mesoporous silica particles for efficient conversion of glucose to 5-Hydroxymethylfurfural	2026	2026-04-29 09:50:18.86114
+382	user_pro	10.1016/j.jfutfo.2025.01.009	Viability assessment of microencapsulated probiotics in carbonated soft drinks during storage and simulated gastrointestinal conditions	2026	2026-04-29 09:50:18.861829
+383	user_pro	10.5829/ije.2026.39.11b.12	Spatial Modeling of Forest Carbon Stocks: Integrating Engineering Framework, Field Data, and Sentinel-2 Imagery	2026	2026-04-29 09:50:18.862322
+384	user_pro	10.1016/j.aquaculture.2025.742884	Dietary supplementation with recombinant shrimp c-type lysozyme modulates the gut microbiome and enhances growth performance and resistance to Ecytonucleospora hepatopenaei infection in Pacific white shrimp (Litopenaeus vannamei)	2026	2026-04-29 09:50:18.862972
+385	user_pro	10.1016/j.fuel.2026.139025	Role of support wettability in Fe-Ni bimetallic catalysts for low-temperature aquathermolysis and heavy oil upgrading: Experimental and DFT insights	2026	2026-04-29 09:50:18.863469
+386	user_pro	10.1016/j.cam.2026.117567	A projection recurrent neural network method for solving absolute value equations associated with second-order cones	2026	2026-04-29 09:50:18.86408
+387	user_pro	10.31893/multiscience.2026553	Integrating user experience and interface design for mental health mobile applications: A prototype development and evaluation approach	2026	2026-04-29 09:50:18.864832
+388	user_pro	10.1016/j.jormas.2026.102799	Three-dimensional cone-beam computed tomography analysis of the mandibular lingula and mandibular foramen with clinical implications for ramus osteotomy	2026	2026-04-29 09:50:18.865376
+389	user_pro	10.1386/crre_00158_1	Integrating tradition and sustainability: Crafting with Ton Bai Romkao in Phang Nga Province, Thailand	2026	2026-04-29 09:50:18.866352
+390	user_pro	10.31893/multiscience.2026654	The lopsided effects of educational trends on quality education for UN SDG achievement: A case study of neurodiverse and marginalised groups	2026	2026-04-29 09:50:18.867018
+391	user_pro	10.1016/j.biombioe.2026.109431	Developing physics-based constrained surrogate model for hydrothermal liquefaction of lignocellulosic biomass	2026	2026-04-29 09:50:18.867487
+392	user_pro	10.1016/j.biombioe.2026.109451	Predicting biochar water retention at high suctions from routinely measured properties across feedstocks and production technologies	2026	2026-04-29 09:50:18.868343
+393	user_pro	10.1016/j.talanta.2026.129832	Monolithic graphene oxide/polyaniline-coated natural rubber foam for solid-phase extraction of carbamate pesticides in fruit juice samples	2026	2026-04-29 09:50:18.868955
+394	user_pro	10.1016/j.bioelechem.2026.109296	Non-invasive detection of salivary TNF-α enabled by hemp-derived nanocellulose nanocomposite electrochemical immunosensor for point-of-care diagnostics	2026	2026-04-29 09:50:18.869394
+395	user_pro	10.1016/j.cam.2026.117559	An adaptive stochastic gradient method with variance reduction for smooth optimization problems	2026	2026-04-29 09:50:18.874658
+396	user_pro	10.1016/j.talanta.2026.129828	Synergistic MIP-aptamer dual-recognition on silver-decorated sulfur-doped graphene quantum dots (S-GQDs@Ag) nanohybrids for ultra-sensitive impedimetric carcinoembryonic antigen detection	2026	2026-04-29 09:50:18.878278
+397	user_pro	10.22059/ijhst.2025.388534.1006	Synergistic Effects of Rhizosphere Temperature and Growing Media on Growth and Physiological Attributes of Strawberry cv. ‘Akihime’	2026	2026-04-29 09:50:18.889202
+398	user_pro	10.31893/multiscience.2026650	Digitally visible, culturally grounded: Narcissism and student leadership in Thai higher education	2026	2026-04-29 09:50:18.89791
+399	user_pro	10.31893/multiscience.2026795	Analysis and comparison of creative tourism behavior among tourists in Amphawa based on demographic characteristics	2026	2026-04-29 09:50:18.898692
+400	user_pro	10.1016/j.jfoodeng.2026.113095	Non-thermal sterilization of liquid foods via pulsed electric fields: A Tesla coil and multilevel inverter-based approach	2026	2026-04-29 09:50:18.906512
+401	user_pro	10.1016/j.bioelechem.2026.109306	PNA/SWCNT hybrid electrochemical platform optimized by machine learning for species-specific quantification of Bacillus cereus	2026	2026-04-29 09:50:18.911567
+402	user_pro	10.1016/j.biombioe.2026.109244	Analysis of life-cycle carbon and water footprints in woodchip production from fast-growing trees in Thailand	2026	2026-04-29 09:50:18.913573
+403	user_pro	10.1016/j.aaf.2026.01.009	Evaluating genotype by environment interaction for growth in response to dietary protein replacements in Asian seabass (Lates calcarifer Bloch, 1790)	2026	2026-04-29 09:50:18.914653
+404	user_pro	10.1016/j.biombioe.2026.109325	Fast-growing flowering aquatic plant, Wolffia-derived porous biochar as a sustainable anode material for lithium-ion batteries	2026	2026-04-29 09:50:18.916163
+405	user_pro	10.1016/j.synbio.2026.03.012	Development of mycelium-reinforced dialdehyde cellulose–polyvinyl alcohol composites for emerging high-performance sustainable materials	2026	2026-04-29 09:50:18.917805
+406	user_pro	10.12982/VIS.2026.066	Comparative observation of the organ development and health of the tropical oyster Crassostrea belcheri (Sowerby, 1871) in hatchery and wild farming sites	2026	2026-04-29 09:50:18.921043
+407	user_pro	10.12982/VIS.2026.069	Fatal vascular pythiosis in a dog from Thailand: Clinical presentation and pathological findings—first report: A case report	2026	2026-04-29 09:50:18.925988
+408	user_pro	10.1016/j.biombioe.2026.109243	Valorization of tropical fruit seed wastes for biodiesel production: A review of extraction technologies, catalytic systems, and biorefinery perspectives	2026	2026-04-29 09:50:18.936963
+409	user_pro	10.1016/j.biombioe.2026.109282	Comparative techno-economic and life cycle assessment of distilled monoglycerides production from waste cooking oil and palm fatty acid distillate via glycerolysis	2026	2026-04-29 09:50:18.949421
+410	user_pro	10.12982/VIS.2026.065	Histopathological characterization of age-related intestinal lesions and fibrosis in naturally coccidia-infected Asian sea bass (Lates calcarifer)	2026	2026-04-29 09:50:18.953219
+411	user_pro	10.17509/ajse.v6i2.90336	Assessing the Carbon Sequestration Potential of Spirogyra Algae in Achieving Sustainable Development Goals (SDGs): Biomass Estimation and Microbial Interactions in the Chi River Basin, Thailand	2026	2026-04-29 09:50:18.956069
+412	user_pro	10.11114/smc.v14i3.8384	Nostalgia-Driven Gamification as a Digital Media Strategy for Enhancing Exercise Engagement among Older Adults in an Aging Society	2026	2026-04-29 09:50:18.956868
+413	user_pro	10.12982/VIS.2026.061	Atypical lethal systemic granulomatous inflammation caused by Pseudomonas aeruginosa in a green iguana (Iguana iguana): A postmortem case report	2026	2026-04-29 09:50:18.957476
+414	user_pro	10.1016/j.phytochem.2026.114933	Astraeusols F–J: Lanostane and spirocyclic lanostane triterpenes from the wild edible mushroom Astraeus odoratus	2026	2026-04-29 09:50:18.958172
+415	user_pro	10.1016/j.cartre.2026.100622	Enhanced and tunable ferromagnetism in periodic-arrays of CVD-synthesized carbon films	2026	2026-04-29 09:50:18.958927
+416	user_pro	10.1016/j.foodcont.2026.112127	Surimi species authentication using Nanopore metabarcoding with short- and long-amplicon 16S and COI primers	2026	2026-04-29 09:50:18.959482
+417	user_pro	10.1016/j.cirpj.2026.02.012	Optimization of tool orientation for five-axis machining. Hybrid Euler–Lagrange approach	2026	2026-04-29 09:50:18.960148
+418	user_pro	10.12982/VIS.2026.064	Effects of commercial seaweed supplementation on in vitro methane production and milk performance in dairy	2026	2026-04-29 09:50:18.960953
+419	user_pro	10.1016/j.biombioe.2026.109331	Unlocking Thailand's biohydrogen potential: A comparative assessment of gasification and dark fermentation using a refined approach	2026	2026-04-29 09:50:18.961484
+420	user_pro	10.1016/j.biombioe.2026.109253	Novel composite film of starch/PVA and hydroxyapatite from fish scale: Characterization and application	2026	2026-04-29 09:50:18.962271
+421	user_pro	10.1016/j.epsr.2026.113046	Coordinated control of HVDC and air conditioners using distributed MPC for regulating frequency and indoor temperature deviations	2026	2026-04-29 09:50:18.962929
+422	user_pro	10.17509/ijost.v11i2.89691	Microstructure and Wear Behavior of Repair Weld on the Flash-Butt Welded Rail	2026	2026-04-29 09:50:18.96346
+423	user_pro	10.1016/j.spl.2026.110775	A finite-sample Borel–Cantelli inequality under m-dependence	2026	2026-04-29 09:50:18.964164
+424	user_pro	10.11114/smc.v14i3.8625	The Impact of Artificial Intelligence–Driven Social Media on Educational Opportunities and Curriculum Effectiveness in Higher Education	2026	2026-04-29 09:50:18.965128
+425	user_pro	10.1016/j.cam.2026.117369	Double inertial contraction method for monotone inclusion problems for medical image recovery and data classifications	2026	2026-04-29 09:50:18.965952
+426	user_pro	10.55446/IJE.2025.3213	EFFECTS OF METFORMIN HYDROCHLORIDE ON DEVELOPMENT AND SURVIVAL IN THE BLOW FLY CHRYSOMYA MEGACEPHALA (FABRICIUS)	2026	2026-04-29 09:50:18.966496
+427	user_pro	10.1016/j.cam.2026.117449	Corrigendum to “An efficient matrix free optimization algorithm combining a revised PRP and FR-CG type methods with application to robotics” [Journal of Computational and Applied Mathematic 483 (2026) 1-19 /117378] (S0377042726000440), (10.1016/j.cam.2026.117378)	2026	2026-04-29 09:50:18.967231
+428	user_pro	10.1016/j.cam.2026.117378	An efficient matrix free optimization algorithm combining a revised PRP and FR-CG type methods with application to robotics	2026	2026-04-29 09:50:18.968088
+429	user_pro	10.1016/j.tsc.2026.102208	Every cloud has a silver lining: Academic involution atmosphere as a double-edged sword for research creativity	2026	2026-04-29 09:50:18.96904
+430	user_pro	10.1016/j.jpcs.2026.113768	Magnetic and dots effect of Zn doped in α-Fe2O3/Ti3C2Mxene/Carbon Dots for enhance the photocatalytic H2 production under visible light	2026	2026-04-29 09:50:18.969555
+431	user_pro	10.1016/j.matcom.2026.03.021	Stability and bifurcation analysis of a complex two-prey, one-predator model with carry-over effects, migration, and harvesting	2026	2026-04-29 09:50:18.97041
+432	user_pro	10.12982/VIS.2026.059	Comparison of growth promotion effects: Fermented non-medicinal parts of Scutellaria baicalensis vs. non-critical rare earth cerium oxide in yellow-feathered broilers	2026	2026-04-29 09:50:18.971122
+433	user_pro	10.1016/j.patcog.2026.113260	FCT-stock: A fusion CNN-transformer model for anomaly detection in stock volatility	2026	2026-04-29 09:50:18.971849
+434	user_pro	10.12982/VIS.2026.063	Effects of Peperomia pellucida (L.) Kunth on the growth performances, and health of red hybrid tilapia (Oreochromis spp.)	2026	2026-04-29 09:50:18.972407
+435	user_pro	10.1016/j.talanta.2026.129740	An immobilization-free aptamer-based liquid sensing display for the label-free detection of illicit Δ9-tetrahydrocannabinol	2026	2026-04-29 09:50:18.973218
+436	user_pro	10.1016/j.ijheatmasstransfer.2026.128716	Multi-parameter optimization of battery thermal management using copper foam, ferrofluid coolant, and advanced flow configurations	2026	2026-04-29 09:50:18.973894
+437	user_pro	10.1016/j.talanta.2026.129695	Using inductively coupled plasma mass spectrometry for studying the association of gold nanoparticles with compounds of clinical interest	2026	2026-04-29 09:50:18.974485
+438	user_pro	10.1016/j.polymdegradstab.2026.112139	Fish scale-derived hydroxyapatite/β-tricalcium phosphate incorporated in polyhydroxybutyrate microparticles via in-situ biopolymer blend for bone graft application with comparative life cycle assessment	2026	2026-04-29 09:50:18.975429
+439	user_pro	10.1016/j.atech.2026.102001	Automatic on-farm detection of mastitis in raw cow milk using optical spectroscopy and edge artificial intelligence	2026	2026-04-29 09:50:18.976241
+440	user_pro	10.1016/j.avsg.2026.03.049	Effects of Remote Ischemic Preconditioning in Patients with Acute Lower Extremity Ischemia	2026	2026-04-29 09:50:18.976946
+441	user_pro	10.1016/j.bcp.2026.117954	Ranolazine exerts cardioprotection through attenuating mitochondrial dynamic imbalance in trastuzumab-induced cardiotoxicity in rats	2026	2026-04-29 09:50:18.977484
+442	user_pro	10.1016/j.phytochem.2026.114899	13-epi-manoyl oxide diterpenoids from the rhizomes of Kaempferia udonensis with anti-inflammatory activity	2026	2026-04-29 09:50:18.97822
+443	user_pro	10.4491/eer.2025.353	Evaluating the capacity of aquaculture ponds for biological nitrogen removal: The roles of microbial acclimation, aeration management, and supplementation with organic carbon and probiotic bacteria	2026	2026-04-29 09:50:18.978916
+444	user_pro	10.1016/j.biombioe.2026.109116	Anaerobic biorefinery of elephant dung, combining solid-state anaerobic digestion and hydrothermal carbonization: the effect of inoculum source, energy recovery, and carbon sequestration	2026	2026-04-29 09:50:18.979484
+445	user_pro	10.31893/multiscience.2026482	Development of computational thinking and artificial intelligence skills through a board game for primary students in Border Patrol Police Schools	2026	2026-04-29 09:50:18.980277
+446	user_pro	10.1016/j.talo.2026.100608	Stripping voltammetric analysis of cadmium on a dual working screen-printed carbon electrode modified with graphene-oxide/carbon-nanohorn composite	2026	2026-04-29 09:50:18.981156
+447	user_pro	10.1016/j.snb.2026.139914	Ultrasensitive photothermal/fluorescent paper-based microfluidic immunosensor for nuclear matrix protein 22 quantification in human urine samples for rapid diagnosis of bladder cancer	2026	2026-04-29 09:50:18.981921
+448	user_pro	10.1016/j.micrna.2026.208694	Strain-tuned optical properties of a two-dimensional hexagonal lattice: Exploiting saddle degrees of freedom and saddle filtering effects	2026	2026-04-29 09:50:18.982568
+449	user_pro	10.31893/multiscience.2026643	Identity framework-based digital learning and the development of entrepreneurial personality among vocational education students	2026	2026-04-29 09:50:18.983374
+450	user_pro	10.1016/j.biombioe.2026.109240	Hydrothermal liquefaction of diverse natural rubber waste streams in subcritical water for bio-oil production and fuel-relevant rheology	2026	2026-04-29 09:50:18.984213
+451	user_pro	10.1016/j.jcrc.2026.155593	Inferior vena cava dynamics during triggered breaths under different levels of pressure support and PEEP: A randomized crossover physiologic study	2026	2026-04-29 09:50:18.985056
+452	user_pro	10.1016/j.biombioe.2026.109152	Structure-acidity interplay in Ni/HUSY catalysts for external H2-free hydrothermal conversion of palm oil in alcohol-water media	2026	2026-04-29 09:50:18.98555
+453	user_pro	10.1016/j.snb.2026.139905	Smartphone-based wavelength-tunable SPR electronic tongue with machine learning for beverage discrimination and dual-analyte quantification	2026	2026-04-29 09:50:18.986269
+454	user_pro	10.1016/j.esd.2026.101986	Adoption, fiscal cost, and policy compromise: Evaluating residential rooftop solar policies in Thailand for emerging economies	2026	2026-04-29 09:50:18.986984
+455	user_pro	10.1016/j.nima.2026.171502	Benchmarking the upgraded NCP 5-MV accelerator-based particle induced X-ray emission analysis system	2026	2026-04-29 09:50:18.987596
+456	user_pro	10.1016/j.engappai.2026.114732	Optimizing fractal geometries for multifrequency antennas in industrial, scientific, and medical bands using evolutionary particle swarm optimization: Modeling and design considerations	2026	2026-04-29 09:50:18.988387
+457	user_pro	10.31893/multiscience.2026531	A conceptual model of employees’ behavioral intention to use generative artificial intelligence technology in mid-sized organizations	2026	2026-04-29 09:50:18.989146
+458	user_pro	10.1016/j.scico.2026.103477	RepoAI: Automated code refactoring through multi-agent LLM orchestration and retrieval-augmented generation	2026	2026-04-29 09:50:18.989927
+459	user_pro	10.1016/j.foodqual.2026.105925	Colour matters: its influence on food perceptions and purchase intention for bakery products	2026	2026-04-29 09:50:18.990541
+460	user_pro	10.1016/j.cptl.2026.102652	Enhancing knowledge acquisition and engagement in medicinal chemistry: The role of interactive video modules in pharmacy education	2026	2026-04-29 09:50:18.991374
+461	user_pro	10.1016/j.esd.2026.101985	Explaining public acceptance of small modular reactors in Thailand: Planned behavior, innovation attributes, moral norms, risk–benefit, and knowledge sharing	2026	2026-04-29 09:50:18.992079
+462	user_pro	10.1016/j.ijheatmasstransfer.2026.128692	Optimizing thermal performance through pattern variation in grooved and pinned heat sinks: Numerical investigation	2026	2026-04-29 09:50:18.992836
+463	user_pro	10.1016/j.fuproc.2026.108452	Torrefied biomass pellet production from rubber wood wastes and corn wastes in pilot-scale vibrating torrefaction system	2026	2026-04-29 09:50:18.993426
+464	user_pro	10.1016/j.biombioe.2026.109178	Microalgal photobioreactors as living air purifiers for better indoor carbon dioxide quality control	2026	2026-04-29 09:50:18.994162
+465	user_pro	10.1016/j.jfoodeng.2026.113047	Enhancing supply chain efficiency for air transport of horticultural products by simplified heat and mass transfer modelling	2026	2026-04-29 09:50:18.994962
+466	user_pro	10.1016/j.postharvbio.2026.114338	Ethylene-induced rapid anthocyanin degradation in Vanda 'Sansai Blue' orchid cut flowers: Coordinated regulation of biosynthetic genes and class III peroxidases revealed by transcriptome analysis	2026	2026-04-29 09:50:18.995543
+467	user_pro	10.1016/j.bioelechem.2026.109215	Enhanced microalgae-based microbial fuel cell performance using single-chamber photocatalyst air-cathode modification	2026	2026-04-29 09:50:18.996326
+468	user_pro	10.1016/j.gecco.2026.e04217	Effects of landscape and anthropogenic threats on the occurrence of the fishing cat in a human-dominated landscape	2026	2026-04-29 09:50:18.997071
+469	user_pro	10.1016/j.ijhm.2026.104679	From trust to loyalty: A cross-lagged panel analysis of the evolution of green customer commitment in the luxury hotel sector	2026	2026-04-29 09:50:18.997892
+470	user_pro	10.31893/multiscience.2026645	Musical characteristics and pedagogical applications of the French Horn in Chinese folk songs	2026	2026-04-29 09:50:18.998401
+471	user_pro	10.31893/multiscience.2026513	Exploring cultural memory in urban change: A study on the protection of historical and cultural heritage in Guangzhou during the Ming and Qing dynasties (1368-1912)	2026	2026-04-29 09:50:18.99913
+472	user_pro	10.1016/j.theriogenology.2026.117928	Maternal hemoglobin during late gestation and neonatal hemoglobin are associated with piglet oxygenation and early survival in hyper-prolific sows under tropical conditions	2026	2026-04-29 09:50:19.000086
+473	user_pro	10.1016/j.geotexmem.2026.03.001	A generalized SR-to-CP framework for predicting long-term creep behavior of geogrids from temperature-accelerated stress relaxation tests	2026	2026-04-29 09:50:19.000935
+474	user_pro	10.1016/j.ecolecon.2026.109019	Efficient and sustainable management of shared fisheries in Thailand: Self-governance or regulation?	2026	2026-04-29 09:50:19.001482
+475	user_pro	10.31893/multiscience.2026027	The impact of business resilience and sustainability for Thai-listed firms	2026	2026-04-29 09:50:19.002105
+476	user_pro	10.1016/j.jnutbio.2026.110327	Integrated metabolomics and metagenomics analysis identifies a unique signature characterizing metabolic syndrome	2026	2026-04-29 09:50:19.003475
+477	user_pro	10.1016/j.ecss.2026.109896	Microplastic sources and distribution in tropical mangroves: Natural and planted systems in China	2026	2026-04-29 09:50:19.004233
+478	user_pro	10.12982/VIS.2026.045	Effects of shallot (Allium ascalonicum) powder supplementation on carcass quality and lipid peroxidation in broiler chickens under heat stress conditions	2026	2026-04-29 09:50:19.004987
+479	user_pro	10.12982/VIS.2026.047	A review of molecular characterization of infectious bursal disease virus circulating in Thailand according to the newly unified genotypic classification scheme	2026	2026-04-29 09:50:19.005493
+480	user_pro	10.1016/j.seppur.2026.137868	Regenerable integrated CO2 absorption-mineralization via modified ChCl/MEA eutectic solvents for synthesis of high-purity submicron aragonite CaCO3	2026	2026-04-29 09:50:19.006206
+481	user_pro	10.1016/j.aqrep.2026.103494	Bacteriocin-producing Lactococcus lactis subsp. lactis A7 enhances health status, immunity and gut microbiota in Nile tilapia (Oreochromis niloticus)	2026	2026-04-29 09:50:19.006895
+482	user_pro	10.1016/j.aqrep.2026.103575	Genetic diversity, population structure and multiple introductions of invasive blackchin tilapia Sarotherodon melanotheron in Thailand	2026	2026-04-29 09:50:19.007763
+483	user_pro	10.6180/jase.202607_30.005	Biochar-Amended Chicken Manure, Vermicompost, And Wastewater Sludge On Hemp Growth, Heavy Metal Accumulation, And Rhizo-Microbial Communities	2026	2026-04-29 09:50:19.008802
+484	user_pro	10.6180/jase.202607_30.020	PL-RSM Model Of Supercritical CO2 Fast Extraction Phase Of Argan Kernel Oil	2026	2026-04-29 09:50:19.01022
+485	user_pro	10.1016/j.ijsolstr.2026.114002	Symplectic Hamiltonian formulation for stress and deformation in anisotropic auxetic beams	2026	2026-04-29 09:50:19.011145
+486	user_pro	10.1016/j.eswa.2026.132226	Design of an intelligent surveillance plan using deep neural networks and geospatial risk score for predicting daily maritime accidents: an empirical case study of the Thai Seas	2026	2026-04-29 09:50:19.012228
+487	user_pro	10.1016/j.ecss.2026.109837	Geochemical controls and seasonal variability of mercury fractionation in marine sediments of the Inner Gulf of Thailand	2026	2026-04-29 09:50:19.013787
+488	user_pro	10.1016/j.aqrep.2026.103496	Effect of dietary supplementation of Cladophora glomerata meal on growth, physiological indices, and expression of genes related growth and immunity in ornamental goldfish (Carassius auratus)	2026	2026-04-29 09:50:19.015123
+489	user_pro	10.1016/j.engstruct.2026.122681	Damage index of beam-to-upright connections in high-rise steel storage racks	2026	2026-04-29 09:50:19.018325
+490	user_pro	10.1016/j.molliq.2026.129532	Absorption of CO2 and Sulfur-containing sour components from natural gas using aqueous Tetrabutylphosphonium acetate: Molecular dynamics simulations	2026	2026-04-29 09:50:19.019909
+491	user_pro	10.31893/multiscience.2026150	Opinions of the Population Aged 13 and Above on Interreligious Understanding	2026	2026-04-29 09:50:19.020758
+492	user_pro	10.31893/multiscience.2026147	An inter-organizational collaboration model for promoting organic rice production to enhance organic rice standards in Thailand	2026	2026-04-29 09:50:19.021716
+493	user_pro	10.1016/j.rechem.2026.103320	Dual antibacterial and selective anticancer activities of biogenic ZnO nanoparticles from durian flower waste: impact of surface phytochemicals	2026	2026-04-29 09:50:19.024516
+494	user_pro	10.1016/j.ins.2026.123338	TRACED: Trend-adaptive classification with ellipsoidal disambiguation for resolving exterior and coincident regions in data streams	2026	2026-04-29 09:50:19.025887
+495	user_pro	10.1016/j.saa.2026.127688	Spectrophotometric determination of tin in canned fruit samples using sappan wood extract as a natural reagent	2026	2026-04-29 09:50:19.026864
+496	user_pro	10.1016/j.seppur.2026.137339	Deep eutectic solvent-modified magnetic biochar from sugarcane bagasse for enhanced removal of toxic metals and pharmaceuticals	2026	2026-04-29 09:50:19.02772
+497	user_pro	10.1016/j.archoralbio.2026.106593	Standardized Centella asiatica extract (ECa 233) mitigates chlorhexidine-induced cytotoxicity and promotes oral wound repair via immunomodulation and angiogenesis	2026	2026-04-29 09:50:19.028437
+498	user_pro	10.1016/j.pmpp.2026.103195	Biocontrol potential of Trichoderma culture filtrates against Schizophyllum commune: Metabolite profiling and oxidative stress mechanisms	2026	2026-04-29 09:50:19.029469
+499	user_pro	10.1016/j.micpath.2026.108496	The sbp3 gene of Streptococcus suis plays an important role in biofilm formation, adhesion, invasion, and cytotoxicity in the human intestinal epithelial cell line	2026	2026-04-29 09:50:19.030737
 \.
 
 
@@ -1444,10 +1944,10 @@ COPY public.user_research_history (id, user_id, doi, title, year, created_at) FR
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.users (id, user_id, package, created_at, api_key) FROM stdin;
-1	user_free	free	2026-04-28 07:35:39.8357	key_free_123
-2	user_basic	basic	2026-04-28 07:35:39.8357	key_basic_123
-3	user_pro	pro	2026-04-28 07:35:39.8357	key_pro_123
+COPY public.users (id, user_id, package, created_at, api_key, password) FROM stdin;
+1	user_free	free	2026-04-28 07:35:39.8357	key_free_123	123
+2	user_basic	basic	2026-04-28 07:35:39.8357	key_basic_123	123
+3	user_pro	pro	2026-04-28 07:35:39.8357	key_pro_123	123
 \.
 
 
@@ -1462,7 +1962,7 @@ SELECT pg_catalog.setval('public.research_id_seq', 1262, true);
 -- Name: user_research_history_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.user_research_history_id_seq', 1, false);
+SELECT pg_catalog.setval('public.user_research_history_id_seq', 499, true);
 
 
 --
@@ -1486,6 +1986,22 @@ ALTER TABLE ONLY public.research
 
 ALTER TABLE ONLY public.research
     ADD CONSTRAINT research_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users unique_api_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT unique_api_key UNIQUE (api_key);
+
+
+--
+-- Name: users unique_user_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT unique_user_id UNIQUE (user_id);
 
 
 --
@@ -1532,5 +2048,5 @@ ALTER TABLE ONLY public.users
 -- PostgreSQL database dump complete
 --
 
-\unrestrict dLbagLGWoHnBXx0aogkOFpP4gdUvKglziwPDyv6QG8MladOKj5nJqNQerIkzhpc
+\unrestrict rPznyFNephwbCH2aWIDaKimSuCs9bs09QXNtjrz24fcRkC9RyuKVJM9xNYRWC9N
 

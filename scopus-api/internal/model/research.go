@@ -1,4 +1,4 @@
-package model   // ✅ ต้องชื่อ model
+package model  
 
 type Research struct {
 	Title      string
@@ -7,4 +7,11 @@ type Research struct {
 	DOI        *string
 	Cited      int
 	University string
+} 
+
+type User struct {
+	UserID   string
+	Password string
+	APIKey   string
+	Package  string
 }

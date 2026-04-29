@@ -230,3 +230,50 @@ func GetUserHistory(userID string) ([]model.Research, error) {
 
 	return results, nil
 }
+
+func CreateUser(userID, password, apiKey string) error {
+
+	query := `
+	INSERT INTO users (user_id, password, api_key, package, created_at)
+	VALUES ($1, $2, $3, 'free', NOW())
+	`
+
+	_, err := config.DB.Exec(query, userID, password, apiKey)
+	return err
+}
+
+func GetUserByUserID(userID string) (model.User, error) {
+
+	var user model.User
+
+	query := `
+	SELECT user_id, password, api_key, package
+	FROM users
+	WHERE user_id = $1
+	`
+
+	err := config.DB.QueryRow(query, userID).
+		Scan(&user.UserID, &user.Password, &user.APIKey, &user.Package)
+
+	return user, err
+}
+
+func UpdateUserPackage(userID string, pkg string) error {
+
+	result, err := config.DB.Exec(`
+		UPDATE users
+		SET package = $1
+		WHERE user_id = $2
+	`, pkg, userID)
+
+	if err != nil {
+		return err
+	}
+
+	rows, _ := result.RowsAffected()
+	if rows == 0 {
+		return fmt.Errorf("user not found or no update")
+	}
+
+	return nil
+}
