@@ -109,7 +109,7 @@ func (s *ScopusService) GetResearch(userID string, limit int) ([]model.Research,
 			Journal:    journal,
 			Year:       year,
 			DOI:        doi,
-			University: affil, // แพรpro
+			University: affil, 
 		})
 	}
 

@@ -6,6 +6,5 @@ type Research struct {
 	Year       int
 	DOI        *string
 	Cited      int
-	Authors    []string
 	University string
 }
