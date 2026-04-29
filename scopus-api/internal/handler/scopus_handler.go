@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strconv"  
 
+	"time"   // 👈 เพิ่มบรรทัดนี้
 	"scopus-api/internal/model"
 	"scopus-api/internal/service"
 	"scopus-api/internal/repository"
@@ -32,6 +33,18 @@ func GetResearch(c *gin.Context) {
 		err  error
 	)
 
+	reqLimitStr := c.Query("limit")
+
+if reqLimitStr != "" {
+    reqLimit, err := strconv.Atoi(reqLimitStr)
+    if err == nil && reqLimit > 0 {
+
+        // ✅ ห้ามเกิน package limit
+        if reqLimit < limit {
+            limit = reqLimit
+        }
+    }
+}
 	// 👉 readable flags
 	hasFilter := year != "" || university != "" || journal != ""
 	wantAnalytics := analyticsReq == "true"
@@ -172,4 +185,32 @@ func ExportCSV(c *gin.Context) {
 	}
 
 	writer.Flush()
+}
+
+func GetLimit(c *gin.Context) {
+
+	userID := c.GetString("userID")
+	pkg := c.GetString("package")
+	usage := c.GetInt("usage")
+	dailyLimit := c.GetInt("dailyLimit")
+
+	remaining := dailyLimit - usage
+	if remaining < 0 {
+		remaining = 0
+	}
+
+	now := time.Now()
+	nextReset := time.Date(
+		now.Year(), now.Month(), now.Day()+1,
+		0, 0, 0, 0, now.Location(),
+	)
+
+	c.JSON(http.StatusOK, gin.H{
+		"user":        userID,
+		"package":     pkg,
+		"daily_limit": dailyLimit,
+		"used":        usage,
+		"remaining":   remaining,
+		"next_reset":  nextReset.Format("2006-01-02 15:04"),
+	})
 }

@@ -22,6 +22,7 @@ func main() {
 	r.GET("/analytics", middleware.CheckPackage(), handler.GetAnalytics)
 	r.GET("/reset", handler.ResetUsage)
 	r.GET("/export", middleware.CheckPackage(), handler.ExportCSV)
+	r.GET("/limit", middleware.CheckPackage(), handler.GetLimit)
 
 	fmt.Println("Server running at http://localhost:8080")
 	r.Run(":8080")

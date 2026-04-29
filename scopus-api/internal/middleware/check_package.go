@@ -39,7 +39,10 @@ func CheckPackage() gin.HandlerFunc {
 			lastReset = time.Now().Day()
 		}
 
-		usage[userID]++
+			//ฟาเซียแก้ให้มีเส้น /limit
+		if c.FullPath() != "/limit" {
+			usage[userID]++
+		}
 
 		var dailyLimit int
 		var dataLimit int
@@ -67,7 +70,7 @@ func CheckPackage() gin.HandlerFunc {
 
 		case "pro":
 			dailyLimit = 200
-			dataLimit = 1000
+			dataLimit = 500
 
 		default:
 			mu.Unlock()
@@ -100,6 +103,10 @@ func CheckPackage() gin.HandlerFunc {
 		c.Set("userID", userID)
 		c.Set("package", pkg)
 		c.Set("dataLimit", dataLimit)
+
+		//ฟาเซีย แก้ให้มีเส้น /limit
+		c.Set("dailyLimit", dailyLimit)
+		c.Set("usage", usage[userID])
 
 		if delay > 0 {
 			time.Sleep(delay)
