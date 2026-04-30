@@ -18,11 +18,17 @@ func main() {
 
 	r := gin.Default()
 
+	r.POST("/register", handler.Register)	
+	r.POST("/login", handler.Login)
+	r.POST("/upgrade", middleware.CheckPackage(), handler.UpgradePackage)
+	r.GET("/reset", handler.ResetUsage)
+	r.GET("/limit", middleware.CheckPackage(), handler.GetLimit)	
+	//core domain
 	r.GET("/research", middleware.CheckPackage(), handler.GetResearch)
 	r.GET("/analytics", middleware.CheckPackage(), handler.GetAnalytics)
-	r.GET("/reset", handler.ResetUsage)
 	r.GET("/export", middleware.CheckPackage(), handler.ExportCSV)
-	r.GET("/limit", middleware.CheckPackage(), handler.GetLimit)
+
+
 
 	fmt.Println("Server running at http://localhost:8080")
 	r.Run(":8080")

@@ -39,8 +39,17 @@ func CheckPackage() gin.HandlerFunc {
 			lastReset = time.Now().Day()
 		}
 
-			//ฟาเซียแก้ให้มีเส้น /limit
-		if c.FullPath() != "/limit" {
+		path := c.FullPath()
+
+		skip := map[string]bool{
+			"/register": true,
+			"/login":    true,
+			"/upgrade":  true,
+			"/limit":    true,
+		}
+
+		// ✅ นับเฉพาะ route ที่ไม่อยู่ใน skip
+		if !skip[path] {
 			usage[userID]++
 		}
 
@@ -120,4 +129,11 @@ func ResetUsage() {
 	defer mu.Unlock()
 
 	usage = map[string]int{}
+}
+
+func ResetUserUsage(userID string) {
+	mu.Lock()
+	defer mu.Unlock()
+
+	delete(usage, userID)
 }

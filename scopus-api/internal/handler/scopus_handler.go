@@ -2,6 +2,7 @@ package handler
 
 import (
 
+	"fmt"
 	"encoding/csv"  
 	"net/http"
 	"strconv"  
@@ -12,6 +13,9 @@ import (
 	"scopus-api/internal/repository"
 
 	"github.com/gin-gonic/gin"
+	"golang.org/x/crypto/bcrypt"
+	"github.com/google/uuid"
+	"scopus-api/internal/middleware"
 )
 
 func GetResearch(c *gin.Context) {
@@ -212,5 +216,118 @@ func GetLimit(c *gin.Context) {
 		"used":        usage,
 		"remaining":   remaining,
 		"next_reset":  nextReset.Format("2006-01-02 15:04"),
+	})
+}
+
+func Register(c *gin.Context) {
+
+	var req struct {
+		UserID   string `json:"user_id"`
+		Password string `json:"password"`
+	}
+
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(400, gin.H{"error": "invalid input"})
+		return
+	}
+
+	// ❗ เช็คก่อน (สำคัญ)
+	if req.UserID == "" || req.Password == "" {
+		c.JSON(400, gin.H{"error": "user_id and password required"})
+		return
+	}
+
+	// 🔒 hash password จาก user
+	hashed, err := bcrypt.GenerateFromPassword([]byte(req.Password), 10)
+	if err != nil {
+		c.JSON(500, gin.H{"error": "hash error"})
+		return
+	}
+
+	apiKey := uuid.New().String()
+
+	err = repository.CreateUser(req.UserID, string(hashed), apiKey)
+	if err != nil {
+		c.JSON(400, gin.H{"error": "user already exists"})
+		return
+	}
+
+	c.JSON(201, gin.H{
+		"message": "register success",
+		"data": gin.H{
+			"api_key": apiKey,
+			"package": "free",
+		},
+	})
+}
+
+func Login(c *gin.Context) {
+
+	var req struct {
+		UserID   string `json:"user_id"`
+		Password string `json:"password"`
+	}
+
+	c.ShouldBindJSON(&req)
+
+	user, err := repository.GetUserByUserID(req.UserID)
+	if err != nil {
+		c.JSON(401, gin.H{"error": "user not found"})
+		return
+	}
+
+	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.Password))
+	if err != nil {
+		c.JSON(401, gin.H{"error": "wrong password"})
+		return
+	}
+
+	c.JSON(200, gin.H{
+		"api_key": user.APIKey,
+		"package": user.Package,
+	})
+}
+
+func UpgradePackage(c *gin.Context) {
+
+	userID := c.GetString("userID")
+
+	if userID == "" {
+		c.JSON(401, gin.H{"error": "unauthorized"})
+		return
+	}
+
+	var req struct {
+		Package string `json:"package"`
+	}
+
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(400, gin.H{"error": "invalid input"})
+		return
+	}
+
+	// validate package
+	if req.Package != "free" && req.Package != "basic" && req.Package != "pro" {
+		c.JSON(400, gin.H{"error": "invalid package"})
+		return
+	}
+
+	// 🔥 debug (ช่วยหาปัญหา)
+	fmt.Println("userID:", userID)
+	fmt.Println("package:", req.Package)
+
+	err := repository.UpdateUserPackage(userID, req.Package)
+	if err != nil {
+		fmt.Println("update error:", err) // 👈 ดู error จริง
+		c.JSON(500, gin.H{"error": err.Error()})
+		return
+	}
+
+	// reset usage เฉพาะ user
+	middleware.ResetUserUsage(userID)
+
+	c.JSON(200, gin.H{
+		"message": "package updated",
+		"package": req.Package,
 	})
 }
